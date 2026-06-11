@@ -1,5 +1,5 @@
 {
-  "refreshedAt": "2026-06-09T06:07:50.562Z",
+  "refreshedAt": "2026-06-11T05:26:47.740Z",
   "refreshMode": "http-fetch",
   "products": [
     {
@@ -42,7 +42,7 @@
       "confidence": "Product page showed low/limited availability.",
       "fetchStatus": "live",
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:19.631Z",
+      "updatedAt": "2026-06-11T05:26:12.681Z",
       "available": true,
       "productImage": "https://static.chemistwarehouse.co.nz/ams/media/pi/167014/F2D_200.jpg"
     },
@@ -86,7 +86,7 @@
       "confidence": "Variant price captured from 1kg option.",
       "fetchStatus": "live",
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:19.529Z",
+      "updatedAt": "2026-06-11T05:26:12.911Z",
       "productImage": "https://cdn.shopify.com/s/files/1/0051/6810/3491/files/atp-science-noway-creatine-monohydrate.1761599216612_7d648d28-9dc8-4378-94c5-13fd60c21f6d.png?v=1773286003",
       "available": true
     },
@@ -142,7 +142,7 @@
       "confidence": "Review data was not exposed in search snippet.",
       "fetchStatus": "unavailable",
       "fetchError": "product is marked unavailable by retailer",
-      "updatedAt": "2026-06-09T06:07:20.147Z",
+      "updatedAt": "2026-06-11T05:26:13.321Z",
       "productImage": "https://xplosiv.nz/media/catalog/product/cache/aadd22f13385e97bd2c31bcb82066b4a/p/v/pvl_purestcreatine_1kg.png",
       "available": false
     },
@@ -167,7 +167,7 @@
       "confidence": "Online-only store, so pickup value is zero.",
       "fetchStatus": "live",
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:20.492Z",
+      "updatedAt": "2026-06-11T05:26:14.144Z",
       "productImage": "http://www.healthpost.co.nz/cdn/shop/files/now-foods-micronized-creatine-monohydrate-powder__07127.jpg?v=1764577601",
       "available": true
     },
@@ -215,7 +215,7 @@
       "confidence": "Good review depth, smaller pack.",
       "fetchStatus": "live",
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:20.442Z",
+      "updatedAt": "2026-06-11T05:26:13.604Z",
       "productImage": "https://www.nzprotein.co.nz/img/nzprotein-share.png",
       "available": true
     },
@@ -271,7 +271,7 @@
       "confidence": "Size estimated from 72 x 5g serves.",
       "fetchStatus": "live",
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:21.354Z",
+      "updatedAt": "2026-06-11T05:26:14.576Z",
       "productImage": {
         "@type": "ImageObject",
         "url": "https://www.bargainchemist.co.nz/cdn/shop/files/Cellucor_COR_CREATINE_72Servings_Unflavoured_637527123593660402_1024x.png?v=1752626106",
@@ -303,7 +303,7 @@
       "confidence": "Low review count; shipping under threshold estimated.",
       "fetchStatus": "unavailable",
       "fetchError": "product is marked unavailable by retailer",
-      "updatedAt": "2026-06-09T06:07:21.081Z",
+      "updatedAt": "2026-06-11T05:26:14.956Z",
       "productImage": "//www.bnhealthy.co.nz/cdn/shop/files/bn-creatine-front.png?v=1773628400",
       "available": false
     },
@@ -335,7 +335,7 @@
       "confidence": "Clear 1kg value, limited reviews.",
       "fetchStatus": "live",
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:21.329Z",
+      "updatedAt": "2026-06-11T05:26:14.839Z",
       "productImage": "https://www.supplements.co.nz/cdn/shop/products/biox-creatine-rush-1kg_1_1024x1024.jpg?v=1677423424",
       "available": true
     },
@@ -367,7 +367,7 @@
       "confidence": "Review details not exposed in search result.",
       "fetchStatus": "live",
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:21.768Z",
+      "updatedAt": "2026-06-11T05:26:15.325Z",
       "productImage": "http://www.netpharmacy.co.nz/cdn/shop/files/nothing-naughty-creatine-monohydrate-500g.webp?v=1772569082",
       "available": true
     },
@@ -413,7 +413,7 @@
       "fetchStatus": "live",
       "discoverySource": "shopifyCollection",
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:21.590Z",
+      "updatedAt": "2026-06-11T05:26:15.169Z",
       "available": true
     },
     {
@@ -458,7 +458,7 @@
       "fetchStatus": "unavailable",
       "discoverySource": "shopifyCollection",
       "fetchError": "product is marked unavailable by retailer",
-      "updatedAt": "2026-06-09T06:07:21.813Z",
+      "updatedAt": "2026-06-11T05:26:15.400Z",
       "available": false
     },
     {
@@ -503,7 +503,7 @@
       "fetchStatus": "live",
       "discoverySource": "shopifyCollection",
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:22.011Z",
+      "updatedAt": "2026-06-11T05:26:15.575Z",
       "available": true
     },
     {
@@ -548,7 +548,7 @@
       "fetchStatus": "unavailable",
       "discoverySource": "shopifyCollection",
       "fetchError": "product is marked unavailable by retailer",
-      "updatedAt": "2026-06-09T06:07:22.029Z",
+      "updatedAt": "2026-06-11T05:26:15.611Z",
       "available": false
     },
     {
@@ -593,7 +593,7 @@
       "fetchStatus": "unavailable",
       "discoverySource": "shopifyCollection",
       "fetchError": "product is marked unavailable by retailer",
-      "updatedAt": "2026-06-09T06:07:22.221Z",
+      "updatedAt": "2026-06-11T05:26:15.788Z",
       "available": false
     },
     {
@@ -638,7 +638,7 @@
       "fetchStatus": "unavailable",
       "discoverySource": "shopifyCollection",
       "fetchError": "product is marked unavailable by retailer",
-      "updatedAt": "2026-06-09T06:07:22.246Z",
+      "updatedAt": "2026-06-11T05:26:15.823Z",
       "available": false
     },
     {
@@ -683,7 +683,7 @@
       "fetchStatus": "unavailable",
       "discoverySource": "shopifyCollection",
       "fetchError": "product is marked unavailable by retailer",
-      "updatedAt": "2026-06-09T06:07:22.425Z",
+      "updatedAt": "2026-06-11T05:26:15.994Z",
       "available": false
     },
     {
@@ -728,7 +728,7 @@
       "fetchStatus": "unavailable",
       "discoverySource": "shopifyCollection",
       "fetchError": "product is marked unavailable by retailer",
-      "updatedAt": "2026-06-09T06:07:22.455Z",
+      "updatedAt": "2026-06-11T05:26:16.033Z",
       "available": false
     },
     {
@@ -773,7 +773,7 @@
       "fetchStatus": "unavailable",
       "discoverySource": "shopifyCollection",
       "fetchError": "product is marked unavailable by retailer",
-      "updatedAt": "2026-06-09T06:07:22.632Z",
+      "updatedAt": "2026-06-11T05:26:16.208Z",
       "available": false
     },
     {
@@ -818,7 +818,7 @@
       "fetchStatus": "unavailable",
       "discoverySource": "shopifyCollection",
       "fetchError": "product is marked unavailable by retailer",
-      "updatedAt": "2026-06-09T06:07:22.661Z",
+      "updatedAt": "2026-06-11T05:26:16.256Z",
       "available": false
     },
     {
@@ -863,7 +863,7 @@
       "fetchStatus": "unavailable",
       "discoverySource": "shopifyCollection",
       "fetchError": "product is marked unavailable by retailer",
-      "updatedAt": "2026-06-09T06:07:22.842Z",
+      "updatedAt": "2026-06-11T05:26:16.421Z",
       "available": false
     },
     {
@@ -908,7 +908,7 @@
       "fetchStatus": "unavailable",
       "discoverySource": "shopifyCollection",
       "fetchError": "product is marked unavailable by retailer",
-      "updatedAt": "2026-06-09T06:07:22.888Z",
+      "updatedAt": "2026-06-11T05:26:16.469Z",
       "available": false
     },
     {
@@ -953,7 +953,7 @@
       "fetchStatus": "unavailable",
       "discoverySource": "shopifyCollection",
       "fetchError": "product is marked unavailable by retailer",
-      "updatedAt": "2026-06-09T06:07:23.056Z",
+      "updatedAt": "2026-06-11T05:26:16.636Z",
       "available": false
     },
     {
@@ -998,7 +998,7 @@
       "fetchStatus": "unavailable",
       "discoverySource": "shopifyCollection",
       "fetchError": "product is marked unavailable by retailer",
-      "updatedAt": "2026-06-09T06:07:23.111Z",
+      "updatedAt": "2026-06-11T05:26:16.680Z",
       "available": false
     },
     {
@@ -1043,7 +1043,7 @@
       "fetchStatus": "unavailable",
       "discoverySource": "shopifyCollection",
       "fetchError": "product is marked unavailable by retailer",
-      "updatedAt": "2026-06-09T06:07:23.262Z",
+      "updatedAt": "2026-06-11T05:26:16.861Z",
       "available": false
     },
     {
@@ -1088,7 +1088,7 @@
       "fetchStatus": "live",
       "discoverySource": "shopifyCollection",
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:23.313Z",
+      "updatedAt": "2026-06-11T05:26:16.886Z",
       "available": true
     },
     {
@@ -1133,7 +1133,7 @@
       "fetchStatus": "live",
       "discoverySource": "shopifyCollection",
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:23.506Z",
+      "updatedAt": "2026-06-11T05:26:17.075Z",
       "available": true
     },
     {
@@ -1166,7 +1166,7 @@
       "fetchStatus": "live",
       "discoverySource": "shopifyCollection",
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:23.510Z",
+      "updatedAt": "2026-06-11T05:26:17.090Z",
       "available": true
     },
     {
@@ -1199,7 +1199,7 @@
       "fetchStatus": "unavailable",
       "discoverySource": "shopifyCollection",
       "fetchError": "product is marked unavailable by retailer",
-      "updatedAt": "2026-06-09T06:07:23.737Z",
+      "updatedAt": "2026-06-11T05:26:17.321Z",
       "available": false
     },
     {
@@ -1232,7 +1232,7 @@
       "fetchStatus": "live",
       "discoverySource": "shopifyCollection",
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:23.736Z",
+      "updatedAt": "2026-06-11T05:26:17.301Z",
       "available": true
     },
     {
@@ -1265,7 +1265,7 @@
       "fetchStatus": "live",
       "discoverySource": "shopifyCollection",
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:23.939Z",
+      "updatedAt": "2026-06-11T05:26:17.524Z",
       "available": true
     },
     {
@@ -1298,7 +1298,7 @@
       "fetchStatus": "unavailable",
       "discoverySource": "shopifyCollection",
       "fetchError": "product is marked unavailable by retailer",
-      "updatedAt": "2026-06-09T06:07:23.947Z",
+      "updatedAt": "2026-06-11T05:26:17.530Z",
       "available": false
     },
     {
@@ -1331,7 +1331,7 @@
       "fetchStatus": "live",
       "discoverySource": "shopifyCollection",
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:24.171Z",
+      "updatedAt": "2026-06-11T05:26:17.741Z",
       "available": true
     },
     {
@@ -1364,7 +1364,7 @@
       "fetchStatus": "live",
       "discoverySource": "shopifyCollection",
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:24.164Z",
+      "updatedAt": "2026-06-11T05:26:17.738Z",
       "available": true
     },
     {
@@ -1397,7 +1397,7 @@
       "fetchStatus": "live",
       "discoverySource": "shopifyCollection",
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:24.378Z",
+      "updatedAt": "2026-06-11T05:26:17.950Z",
       "available": true
     },
     {
@@ -1430,7 +1430,7 @@
       "fetchStatus": "unavailable",
       "discoverySource": "shopifyCollection",
       "fetchError": "product is marked unavailable by retailer",
-      "updatedAt": "2026-06-09T06:07:24.375Z",
+      "updatedAt": "2026-06-11T05:26:17.960Z",
       "available": false
     },
     {
@@ -1463,7 +1463,7 @@
       "fetchStatus": "live",
       "discoverySource": "shopifyCollection",
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:24.591Z",
+      "updatedAt": "2026-06-11T05:26:18.159Z",
       "available": true
     },
     {
@@ -1496,7 +1496,7 @@
       "fetchStatus": "live",
       "discoverySource": "shopifyCollection",
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:24.570Z",
+      "updatedAt": "2026-06-11T05:26:18.164Z",
       "available": true
     },
     {
@@ -1529,7 +1529,7 @@
       "fetchStatus": "live",
       "discoverySource": "shopifyCollection",
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:24.778Z",
+      "updatedAt": "2026-06-11T05:26:18.388Z",
       "available": true
     },
     {
@@ -1556,7 +1556,7 @@
       "discoverySource": "shopifyCollection",
       "available": true,
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:25.082Z"
+      "updatedAt": "2026-06-11T05:26:18.409Z"
     },
     {
       "retailer": "NZ Muscle",
@@ -1582,7 +1582,7 @@
       "discoverySource": "shopifyAllProducts",
       "available": true,
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:25.305Z"
+      "updatedAt": "2026-06-11T05:26:18.874Z"
     },
     {
       "retailer": "NZ Muscle",
@@ -1608,7 +1608,7 @@
       "discoverySource": "shopifyAllProducts",
       "available": true,
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:25.563Z"
+      "updatedAt": "2026-06-11T05:26:18.879Z"
     },
     {
       "retailer": "Xplosiv Supplements",
@@ -1665,7 +1665,7 @@
       "discoverySource": "genericHtml",
       "available": true,
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:25.939Z"
+      "updatedAt": "2026-06-11T05:26:19.038Z"
     },
     {
       "retailer": "Xplosiv Supplements",
@@ -1722,7 +1722,7 @@
       "discoverySource": "genericHtml",
       "available": false,
       "fetchError": "product is marked unavailable by retailer",
-      "updatedAt": "2026-06-09T06:07:26.041Z"
+      "updatedAt": "2026-06-11T05:26:19.461Z"
     },
     {
       "retailer": "Xplosiv Supplements",
@@ -1779,7 +1779,7 @@
       "discoverySource": "genericHtml",
       "available": false,
       "fetchError": "product is marked unavailable by retailer",
-      "updatedAt": "2026-06-09T06:07:26.700Z"
+      "updatedAt": "2026-06-11T05:26:20.097Z"
     },
     {
       "retailer": "Xplosiv Supplements",
@@ -1836,7 +1836,7 @@
       "discoverySource": "genericHtml",
       "available": true,
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:26.646Z"
+      "updatedAt": "2026-06-11T05:26:20.116Z"
     },
     {
       "retailer": "Xplosiv Supplements",
@@ -1893,7 +1893,7 @@
       "discoverySource": "genericHtml",
       "available": false,
       "fetchError": "product is marked unavailable by retailer",
-      "updatedAt": "2026-06-09T06:07:27.121Z"
+      "updatedAt": "2026-06-11T05:26:20.634Z"
     },
     {
       "retailer": "Xplosiv Supplements",
@@ -1950,7 +1950,7 @@
       "discoverySource": "genericHtml",
       "available": true,
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:27.155Z"
+      "updatedAt": "2026-06-11T05:26:20.661Z"
     },
     {
       "retailer": "Xplosiv Supplements",
@@ -1998,7 +1998,7 @@
       "product": "Pack Nutrition Creatine Monohydrate 300g Tub",
       "productImage": "https://xplosiv.nz/media/catalog/product/cache/aadd22f13385e97bd2c31bcb82066b4a/p/a/packnutritionmonocreatine300gtub_2024render.png",
       "sizeGrams": 300,
-      "price": 29.95,
+      "price": 39.95,
       "rating": null,
       "reviewCount": null,
       "source": "https://xplosiv.nz/pack-nutrition-creatine-monohydrate-300g.html",
@@ -2007,7 +2007,7 @@
       "discoverySource": "genericHtml",
       "available": true,
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:27.654Z"
+      "updatedAt": "2026-06-11T05:26:21.177Z"
     },
     {
       "retailer": "Xplosiv Supplements",
@@ -2064,7 +2064,7 @@
       "discoverySource": "genericHtml",
       "available": false,
       "fetchError": "product is marked unavailable by retailer",
-      "updatedAt": "2026-06-09T06:07:27.543Z"
+      "updatedAt": "2026-06-11T05:26:21.058Z"
     },
     {
       "retailer": "Xplosiv Supplements",
@@ -2121,7 +2121,7 @@
       "discoverySource": "genericHtml",
       "available": false,
       "fetchError": "product is marked unavailable by retailer",
-      "updatedAt": "2026-06-09T06:07:27.910Z"
+      "updatedAt": "2026-06-11T05:26:21.525Z"
     },
     {
       "retailer": "Sprint Fit",
@@ -2147,7 +2147,7 @@
       "discoverySource": "genericHtml",
       "available": true,
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:29.711Z"
+      "updatedAt": "2026-06-11T05:26:23.327Z"
     },
     {
       "retailer": "Sprint Fit",
@@ -2173,7 +2173,7 @@
       "discoverySource": "genericHtml",
       "available": true,
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:28.229Z"
+      "updatedAt": "2026-06-11T05:26:21.782Z"
     },
     {
       "retailer": "Sprint Fit",
@@ -2199,7 +2199,7 @@
       "discoverySource": "genericHtml",
       "available": true,
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:28.345Z"
+      "updatedAt": "2026-06-11T05:26:21.937Z"
     },
     {
       "retailer": "Sprint Fit",
@@ -2225,7 +2225,7 @@
       "discoverySource": "genericHtml",
       "available": true,
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:28.440Z"
+      "updatedAt": "2026-06-11T05:26:22.046Z"
     },
     {
       "retailer": "Sprint Fit",
@@ -2251,7 +2251,7 @@
       "discoverySource": "genericHtml",
       "available": true,
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:28.833Z"
+      "updatedAt": "2026-06-11T05:26:22.289Z"
     },
     {
       "retailer": "Sprint Fit",
@@ -2277,7 +2277,7 @@
       "discoverySource": "genericHtml",
       "available": true,
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:29.019Z"
+      "updatedAt": "2026-06-11T05:26:22.378Z"
     },
     {
       "retailer": "NZ Muscle",
@@ -2303,7 +2303,7 @@
       "discoverySource": "shopifySearchSuggest",
       "available": true,
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:29.433Z"
+      "updatedAt": "2026-06-11T05:26:22.772Z"
     },
     {
       "retailer": "NZ Muscle",
@@ -2329,7 +2329,7 @@
       "discoverySource": "shopifySearchSuggest",
       "available": true,
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:29.872Z"
+      "updatedAt": "2026-06-11T05:26:23.154Z"
     },
     {
       "retailer": "NZ Muscle",
@@ -2344,7 +2344,7 @@
       "deliveryAvailable": true,
       "pickupAvailable": false,
       "product": "No Brand Creatine Monohydrate Powder",
-      "productImage": "https://cdn.shopify.com/s/files/1/0964/9481/3365/files/nobrand-creatine-1000g_1_846f8921-a95a-40ea-b188-e93c3639419d.jpg?v=1774849167",
+      "productImage": "https://cdn.shopify.com/s/files/1/0964/9481/3365/files/nb-cre1kg-front.jpg?v=1781147435",
       "sizeGrams": 1000,
       "price": 47.99,
       "rating": null,
@@ -2355,7 +2355,7 @@
       "discoverySource": "shopifySearchSuggest",
       "available": false,
       "fetchError": "product is marked unavailable by retailer",
-      "updatedAt": "2026-06-09T06:07:30.113Z"
+      "updatedAt": "2026-06-11T05:26:23.545Z"
     },
     {
       "retailer": "NZ Muscle",
@@ -2381,7 +2381,7 @@
       "discoverySource": "shopifySearchSuggest",
       "available": true,
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:30.374Z"
+      "updatedAt": "2026-06-11T05:26:23.750Z"
     },
     {
       "retailer": "Chemist Warehouse",
@@ -2426,7 +2426,7 @@
       "discoverySource": "chemistWarehouseSearch",
       "available": true,
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:30.197Z"
+      "updatedAt": "2026-06-11T05:26:23.626Z"
     },
     {
       "retailer": "Chemist Warehouse",
@@ -2471,7 +2471,7 @@
       "discoverySource": "chemistWarehouseSearch",
       "available": true,
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:30.255Z"
+      "updatedAt": "2026-06-11T05:26:23.671Z"
     },
     {
       "retailer": "Chemist Warehouse",
@@ -2516,7 +2516,7 @@
       "discoverySource": "chemistWarehouseSearch",
       "available": true,
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:30.380Z"
+      "updatedAt": "2026-06-11T05:26:23.716Z"
     },
     {
       "retailer": "Chemist Warehouse",
@@ -2561,7 +2561,7 @@
       "discoverySource": "chemistWarehouseSearch",
       "available": true,
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:30.442Z"
+      "updatedAt": "2026-06-11T05:26:23.768Z"
     },
     {
       "retailer": "Chemist Warehouse",
@@ -2606,7 +2606,7 @@
       "discoverySource": "chemistWarehouseSearch",
       "available": true,
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:30.438Z"
+      "updatedAt": "2026-06-11T05:26:24.020Z"
     },
     {
       "retailer": "Chemist Warehouse",
@@ -2651,7 +2651,7 @@
       "discoverySource": "chemistWarehouseSearch",
       "available": true,
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:30.676Z"
+      "updatedAt": "2026-06-11T05:26:24.066Z"
     },
     {
       "retailer": "HealthPost",
@@ -2677,7 +2677,7 @@
       "discoverySource": "shopifySearchSuggest",
       "available": true,
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:31.387Z"
+      "updatedAt": "2026-06-11T05:26:24.743Z"
     },
     {
       "retailer": "Net Pharmacy",
@@ -2710,7 +2710,7 @@
       "discoverySource": "shopifySearchSuggest",
       "available": true,
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:31.073Z"
+      "updatedAt": "2026-06-11T05:26:24.571Z"
     },
     {
       "retailer": "Net Pharmacy",
@@ -2743,7 +2743,7 @@
       "discoverySource": "shopifySearchSuggest",
       "available": true,
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:31.474Z"
+      "updatedAt": "2026-06-11T05:26:24.931Z"
     },
     {
       "retailer": "Net Pharmacy",
@@ -2776,7 +2776,7 @@
       "discoverySource": "shopifySearchSuggest",
       "available": true,
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:31.753Z"
+      "updatedAt": "2026-06-11T05:26:25.150Z"
     },
     {
       "retailer": "Net Pharmacy",
@@ -2809,7 +2809,7 @@
       "discoverySource": "shopifySearchSuggest",
       "available": true,
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:31.799Z"
+      "updatedAt": "2026-06-11T05:26:25.330Z"
     },
     {
       "retailer": "Net Pharmacy",
@@ -2842,7 +2842,7 @@
       "discoverySource": "shopifySearchSuggest",
       "available": true,
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:32.080Z"
+      "updatedAt": "2026-06-11T05:26:25.491Z"
     },
     {
       "retailer": "Net Pharmacy",
@@ -2875,7 +2875,7 @@
       "discoverySource": "shopifySearchSuggest",
       "available": true,
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:32.280Z"
+      "updatedAt": "2026-06-11T05:26:25.803Z"
     },
     {
       "retailer": "HealthPost",
@@ -2901,7 +2901,7 @@
       "discoverySource": "shopifySearchSuggest",
       "available": true,
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:33.049Z"
+      "updatedAt": "2026-06-11T05:26:26.193Z"
     },
     {
       "retailer": "Sportsfuel",
@@ -2947,7 +2947,7 @@
       "discoverySource": "shopifySearchSuggest",
       "available": true,
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:32.568Z"
+      "updatedAt": "2026-06-11T05:26:26.314Z"
     },
     {
       "retailer": "Sportsfuel",
@@ -2993,7 +2993,7 @@
       "discoverySource": "shopifySearchSuggest",
       "available": true,
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:32.778Z"
+      "updatedAt": "2026-06-11T05:26:26.437Z"
     },
     {
       "retailer": "Supplements.co.nz",
@@ -3027,7 +3027,7 @@
       "discoverySource": "shopifySearchSuggest",
       "available": true,
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:33.087Z"
+      "updatedAt": "2026-06-11T05:26:26.549Z"
     },
     {
       "retailer": "Supplements.co.nz",
@@ -3061,7 +3061,7 @@
       "discoverySource": "shopifySearchSuggest",
       "available": false,
       "fetchError": "product is marked unavailable by retailer",
-      "updatedAt": "2026-06-09T06:07:33.283Z"
+      "updatedAt": "2026-06-11T05:26:26.707Z"
     },
     {
       "retailer": "Supplements.co.nz",
@@ -3095,7 +3095,7 @@
       "discoverySource": "shopifySearchSuggest",
       "available": true,
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:33.296Z"
+      "updatedAt": "2026-06-11T05:26:26.756Z"
     },
     {
       "retailer": "Musashi NZ",
@@ -3122,7 +3122,7 @@
       "discoverySource": "shopifySearchSuggest",
       "available": true,
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:33.542Z"
+      "updatedAt": "2026-06-11T05:26:26.949Z"
     },
     {
       "retailer": "Musashi NZ",
@@ -3149,7 +3149,7 @@
       "discoverySource": "shopifySearchSuggest",
       "available": true,
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:33.541Z"
+      "updatedAt": "2026-06-11T05:26:26.992Z"
     },
     {
       "retailer": "Musashi NZ",
@@ -3176,7 +3176,7 @@
       "discoverySource": "shopifySearchSuggest",
       "available": true,
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:33.742Z"
+      "updatedAt": "2026-06-11T05:26:27.142Z"
     },
     {
       "retailer": "Musashi NZ",
@@ -3203,7 +3203,7 @@
       "discoverySource": "shopifySearchSuggest",
       "available": true,
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:33.744Z"
+      "updatedAt": "2026-06-11T05:26:27.194Z"
     },
     {
       "retailer": "Musashi NZ",
@@ -3230,7 +3230,7 @@
       "discoverySource": "shopifySearchSuggest",
       "available": true,
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:33.939Z"
+      "updatedAt": "2026-06-11T05:26:27.348Z"
     },
     {
       "retailer": "Musashi NZ",
@@ -3257,7 +3257,7 @@
       "discoverySource": "shopifySearchSuggest",
       "available": true,
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:33.942Z"
+      "updatedAt": "2026-06-11T05:26:27.385Z"
     },
     {
       "retailer": "NZ Muscle",
@@ -3284,7 +3284,7 @@
       "discoverySource": "shopifySearchSuggest",
       "available": true,
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:34.356Z"
+      "updatedAt": "2026-06-11T05:26:27.777Z"
     },
     {
       "retailer": "NZ Muscle",
@@ -3311,7 +3311,7 @@
       "discoverySource": "shopifySearchSuggest",
       "available": true,
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:34.385Z"
+      "updatedAt": "2026-06-11T05:26:27.826Z"
     },
     {
       "retailer": "NZ Muscle",
@@ -3338,7 +3338,7 @@
       "discoverySource": "shopifySearchSuggest",
       "available": true,
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:35.498Z"
+      "updatedAt": "2026-06-11T05:26:28.155Z"
     },
     {
       "retailer": "NZ Muscle",
@@ -3365,7 +3365,7 @@
       "discoverySource": "shopifySearchSuggest",
       "available": true,
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:34.870Z"
+      "updatedAt": "2026-06-11T05:26:28.234Z"
     },
     {
       "retailer": "NZ Muscle",
@@ -3392,7 +3392,7 @@
       "discoverySource": "shopifySearchSuggest",
       "available": true,
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:35.294Z"
+      "updatedAt": "2026-06-11T05:26:28.543Z"
     },
     {
       "retailer": "NZ Muscle",
@@ -3419,7 +3419,7 @@
       "discoverySource": "shopifySearchSuggest",
       "available": true,
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:35.723Z"
+      "updatedAt": "2026-06-11T05:26:28.630Z"
     },
     {
       "retailer": "NZ Muscle",
@@ -3446,7 +3446,7 @@
       "discoverySource": "shopifySearchSuggest",
       "available": true,
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:35.925Z"
+      "updatedAt": "2026-06-11T05:26:28.932Z"
     },
     {
       "retailer": "NZ Muscle",
@@ -3473,7 +3473,7 @@
       "discoverySource": "shopifySearchSuggest",
       "available": false,
       "fetchError": "product is marked unavailable by retailer",
-      "updatedAt": "2026-06-09T06:07:36.175Z"
+      "updatedAt": "2026-06-11T05:26:29.024Z"
     },
     {
       "retailer": "HealthPost",
@@ -3500,7 +3500,7 @@
       "discoverySource": "shopifySearchSuggest",
       "available": true,
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:36.947Z"
+      "updatedAt": "2026-06-11T05:26:29.930Z"
     },
     {
       "retailer": "HealthPost",
@@ -3527,7 +3527,7 @@
       "discoverySource": "shopifySearchSuggest",
       "available": true,
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:37.173Z"
+      "updatedAt": "2026-06-11T05:26:30.063Z"
     },
     {
       "retailer": "HealthPost",
@@ -3554,7 +3554,7 @@
       "discoverySource": "shopifySearchSuggest",
       "available": true,
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:37.863Z"
+      "updatedAt": "2026-06-11T05:26:31.003Z"
     },
     {
       "retailer": "HealthPost",
@@ -3581,7 +3581,7 @@
       "discoverySource": "shopifySearchSuggest",
       "available": true,
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:37.954Z"
+      "updatedAt": "2026-06-11T05:26:30.900Z"
     },
     {
       "retailer": "HealthPost",
@@ -3608,7 +3608,7 @@
       "discoverySource": "shopifySearchSuggest",
       "available": true,
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:38.598Z"
+      "updatedAt": "2026-06-11T05:26:31.946Z"
     },
     {
       "retailer": "HealthPost",
@@ -3635,7 +3635,7 @@
       "discoverySource": "shopifySearchSuggest",
       "available": true,
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:38.643Z"
+      "updatedAt": "2026-06-11T05:26:32.085Z"
     },
     {
       "retailer": "HealthPost",
@@ -3662,7 +3662,7 @@
       "discoverySource": "shopifySearchSuggest",
       "available": true,
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:39.531Z"
+      "updatedAt": "2026-06-11T05:26:32.809Z"
     },
     {
       "retailer": "HealthPost",
@@ -3689,7 +3689,7 @@
       "discoverySource": "shopifySearchSuggest",
       "available": true,
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:39.577Z"
+      "updatedAt": "2026-06-11T05:26:33.285Z"
     },
     {
       "retailer": "HealthPost",
@@ -3716,7 +3716,7 @@
       "discoverySource": "shopifySearchSuggest",
       "available": true,
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:40.366Z"
+      "updatedAt": "2026-06-11T05:26:33.710Z"
     },
     {
       "retailer": "Bargain Chemist",
@@ -3781,7 +3781,7 @@
       "discoverySource": "shopifySearchSuggest",
       "available": true,
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:40.283Z"
+      "updatedAt": "2026-06-11T05:26:33.630Z"
     },
     {
       "retailer": "Bargain Chemist",
@@ -3846,7 +3846,7 @@
       "discoverySource": "shopifySearchSuggest",
       "available": true,
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:41.006Z"
+      "updatedAt": "2026-06-11T05:26:34.129Z"
     },
     {
       "retailer": "Bargain Chemist",
@@ -3911,7 +3911,7 @@
       "discoverySource": "shopifySearchSuggest",
       "available": true,
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:41.068Z"
+      "updatedAt": "2026-06-11T05:26:34.268Z"
     },
     {
       "retailer": "Bargain Chemist",
@@ -3976,7 +3976,7 @@
       "discoverySource": "shopifySearchSuggest",
       "available": true,
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:41.709Z"
+      "updatedAt": "2026-06-11T05:26:34.859Z"
     },
     {
       "retailer": "Bargain Chemist",
@@ -4041,7 +4041,7 @@
       "discoverySource": "shopifySearchSuggest",
       "available": true,
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:41.786Z"
+      "updatedAt": "2026-06-11T05:26:35.039Z"
     },
     {
       "retailer": "Bargain Chemist",
@@ -4106,7 +4106,7 @@
       "discoverySource": "shopifySearchSuggest",
       "available": true,
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:43.993Z"
+      "updatedAt": "2026-06-11T05:26:35.505Z"
     },
     {
       "retailer": "Bargain Chemist",
@@ -4171,7 +4171,7 @@
       "discoverySource": "shopifySearchSuggest",
       "available": true,
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:43.908Z"
+      "updatedAt": "2026-06-11T05:26:35.710Z"
     },
     {
       "retailer": "Bargain Chemist",
@@ -4236,7 +4236,7 @@
       "discoverySource": "shopifySearchSuggest",
       "available": true,
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:44.608Z"
+      "updatedAt": "2026-06-11T05:26:36.157Z"
     },
     {
       "retailer": "Bargain Chemist",
@@ -4301,7 +4301,7 @@
       "discoverySource": "shopifySearchSuggest",
       "available": true,
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:44.685Z"
+      "updatedAt": "2026-06-11T05:26:36.349Z"
     },
     {
       "retailer": "Bargain Chemist",
@@ -4366,7 +4366,7 @@
       "discoverySource": "shopifySearchSuggest",
       "available": true,
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:45.259Z"
+      "updatedAt": "2026-06-11T05:26:36.986Z"
     },
     {
       "retailer": "Bargain Chemist",
@@ -4431,7 +4431,7 @@
       "discoverySource": "shopifySearchSuggest",
       "available": true,
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:45.366Z"
+      "updatedAt": "2026-06-11T05:26:37.040Z"
     },
     {
       "retailer": "Xplosiv Supplements",
@@ -4489,7 +4489,7 @@
       "discoverySource": "genericHtml",
       "available": true,
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:45.707Z"
+      "updatedAt": "2026-06-11T05:26:37.612Z"
     },
     {
       "retailer": "Xplosiv Supplements",
@@ -4547,7 +4547,7 @@
       "discoverySource": "genericHtml",
       "available": true,
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:45.525Z"
+      "updatedAt": "2026-06-11T05:26:37.614Z"
     },
     {
       "retailer": "Xplosiv Supplements",
@@ -4605,7 +4605,7 @@
       "discoverySource": "genericHtml",
       "available": true,
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:45.608Z"
+      "updatedAt": "2026-06-11T05:26:38.221Z"
     },
     {
       "retailer": "Xplosiv Supplements",
@@ -4663,7 +4663,7 @@
       "discoverySource": "genericHtml",
       "available": true,
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:46.077Z"
+      "updatedAt": "2026-06-11T05:26:38.209Z"
     },
     {
       "retailer": "Xplosiv Supplements",
@@ -4721,7 +4721,7 @@
       "discoverySource": "genericHtml",
       "available": true,
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:46.164Z"
+      "updatedAt": "2026-06-11T05:26:38.839Z"
     },
     {
       "retailer": "Xplosiv Supplements",
@@ -4779,7 +4779,7 @@
       "discoverySource": "genericHtml",
       "available": true,
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:46.724Z"
+      "updatedAt": "2026-06-11T05:26:38.887Z"
     },
     {
       "retailer": "NZ Protein",
@@ -4806,7 +4806,7 @@
       "discoverySource": "genericHtml",
       "available": true,
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:46.808Z"
+      "updatedAt": "2026-06-11T05:26:39.620Z"
     },
     {
       "retailer": "NZ Protein",
@@ -4833,7 +4833,7 @@
       "discoverySource": "genericHtml",
       "available": true,
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:47.244Z"
+      "updatedAt": "2026-06-11T05:26:39.493Z"
     },
     {
       "retailer": "NZ Protein",
@@ -4860,7 +4860,7 @@
       "discoverySource": "genericHtml",
       "available": true,
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:47.060Z"
+      "updatedAt": "2026-06-11T05:26:39.733Z"
     },
     {
       "retailer": "Supplements.co.nz",
@@ -4894,7 +4894,7 @@
       "discoverySource": "shopifyCollection",
       "available": true,
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:47.368Z"
+      "updatedAt": "2026-06-11T05:26:39.870Z"
     },
     {
       "retailer": "Chemist Warehouse",
@@ -4940,7 +4940,7 @@
       "discoverySource": "chemistWarehouseSearch",
       "available": true,
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:47.312Z"
+      "updatedAt": "2026-06-11T05:26:39.859Z"
     },
     {
       "retailer": "Chemist Warehouse",
@@ -4986,7 +4986,7 @@
       "discoverySource": "chemistWarehouseSearch",
       "available": true,
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:47.566Z"
+      "updatedAt": "2026-06-11T05:26:40.082Z"
     },
     {
       "retailer": "Chemist Warehouse",
@@ -5032,7 +5032,7 @@
       "discoverySource": "chemistWarehouseSearch",
       "available": true,
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:47.776Z"
+      "updatedAt": "2026-06-11T05:26:40.222Z"
     },
     {
       "retailer": "Chemist Warehouse",
@@ -5078,7 +5078,7 @@
       "discoverySource": "chemistWarehouseSearch",
       "available": true,
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:47.840Z"
+      "updatedAt": "2026-06-11T05:26:40.375Z"
     },
     {
       "retailer": "Chemist Warehouse",
@@ -5124,7 +5124,7 @@
       "discoverySource": "chemistWarehouseSearch",
       "available": true,
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:48.139Z"
+      "updatedAt": "2026-06-11T05:26:41.039Z"
     },
     {
       "retailer": "Chemist Warehouse",
@@ -5170,7 +5170,7 @@
       "discoverySource": "chemistWarehouseSearch",
       "available": true,
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:48.091Z"
+      "updatedAt": "2026-06-11T05:26:40.675Z"
     },
     {
       "retailer": "Chemist Warehouse",
@@ -5216,7 +5216,7 @@
       "discoverySource": "chemistWarehouseSearch",
       "available": true,
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:48.348Z"
+      "updatedAt": "2026-06-11T05:26:40.897Z"
     },
     {
       "retailer": "Chemist Warehouse",
@@ -5262,7 +5262,7 @@
       "discoverySource": "chemistWarehouseSearch",
       "available": true,
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:48.408Z"
+      "updatedAt": "2026-06-11T05:26:41.184Z"
     },
     {
       "retailer": "Chemist Warehouse",
@@ -5308,7 +5308,7 @@
       "discoverySource": "chemistWarehouseSearch",
       "available": true,
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:48.622Z"
+      "updatedAt": "2026-06-11T05:26:41.292Z"
     },
     {
       "retailer": "Chemist Warehouse",
@@ -5354,7 +5354,7 @@
       "discoverySource": "chemistWarehouseSearch",
       "available": true,
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:48.791Z"
+      "updatedAt": "2026-06-11T05:26:41.551Z"
     },
     {
       "retailer": "Chemist Warehouse",
@@ -5400,7 +5400,7 @@
       "discoverySource": "chemistWarehouseSearch",
       "available": true,
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:48.898Z"
+      "updatedAt": "2026-06-11T05:26:41.333Z"
     },
     {
       "retailer": "Chemist Warehouse",
@@ -5446,7 +5446,7 @@
       "discoverySource": "chemistWarehouseSearch",
       "available": true,
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:49.050Z"
+      "updatedAt": "2026-06-11T05:26:41.668Z"
     },
     {
       "retailer": "Chemist Warehouse",
@@ -5492,7 +5492,7 @@
       "discoverySource": "chemistWarehouseSearch",
       "available": true,
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:49.139Z"
+      "updatedAt": "2026-06-11T05:26:41.626Z"
     },
     {
       "retailer": "Chemist Warehouse",
@@ -5538,7 +5538,7 @@
       "discoverySource": "chemistWarehouseSearch",
       "available": true,
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:49.271Z"
+      "updatedAt": "2026-06-11T05:26:41.841Z"
     },
     {
       "retailer": "Chemist Warehouse",
@@ -5584,7 +5584,7 @@
       "discoverySource": "chemistWarehouseSearch",
       "available": true,
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:49.363Z"
+      "updatedAt": "2026-06-11T05:26:42.001Z"
     },
     {
       "retailer": "Chemist Warehouse",
@@ -5630,7 +5630,7 @@
       "discoverySource": "chemistWarehouseSearch",
       "available": true,
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:49.628Z"
+      "updatedAt": "2026-06-11T05:26:42.064Z"
     },
     {
       "retailer": "Chemist Warehouse",
@@ -5676,7 +5676,7 @@
       "discoverySource": "chemistWarehouseSearch",
       "available": true,
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:49.595Z"
+      "updatedAt": "2026-06-11T05:26:42.271Z"
     },
     {
       "retailer": "Chemist Warehouse",
@@ -5722,7 +5722,7 @@
       "discoverySource": "chemistWarehouseSearch",
       "available": true,
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:49.898Z"
+      "updatedAt": "2026-06-11T05:26:42.385Z"
     },
     {
       "retailer": "Chemist Warehouse",
@@ -5768,7 +5768,7 @@
       "discoverySource": "chemistWarehouseSearch",
       "available": true,
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:50.347Z"
+      "updatedAt": "2026-06-11T05:26:42.894Z"
     },
     {
       "retailer": "Chemist Warehouse",
@@ -5814,7 +5814,7 @@
       "discoverySource": "chemistWarehouseSearch",
       "available": true,
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:50.146Z"
+      "updatedAt": "2026-06-11T05:26:42.700Z"
     },
     {
       "retailer": "Chemist Warehouse",
@@ -5860,7 +5860,7 @@
       "discoverySource": "chemistWarehouseSearch",
       "available": true,
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:50.394Z"
+      "updatedAt": "2026-06-11T05:26:42.753Z"
     },
     {
       "retailer": "Chemist Warehouse",
@@ -5906,9 +5906,101 @@
       "discoverySource": "chemistWarehouseSearch",
       "available": true,
       "fetchError": null,
-      "updatedAt": "2026-06-09T06:07:50.562Z"
+      "updatedAt": "2026-06-11T05:26:43.076Z"
+    },
+    {
+      "retailer": "Net Pharmacy",
+      "image": "https://www.google.com/s2/favicons?domain=netpharmacy.co.nz&sz=128",
+      "shipping": {
+        "cost": 6.95,
+        "freeThreshold": 100,
+        "note": "NZ urban delivery under $100; rural surcharge extra."
+      },
+      "pickup": "Click & Collect: 109 Parnell Road, Parnell, Auckland 1052.",
+      "stores": [
+        {
+          "name": "Net Pharmacy Parnell",
+          "address": "109 Parnell Road, Parnell, Auckland",
+          "lat": -36.853,
+          "lng": 174.779
+        }
+      ],
+      "deliveryAvailable": true,
+      "pickupAvailable": true,
+      "product": "Thorne Research Creatine + Alpha GPC - 231g",
+      "category": "creatine",
+      "productImage": "http://www.netpharmacy.co.nz/cdn/shop/files/thorne-research-creatine-alpha-gpc-231g.png?v=1774402408",
+      "sizeGrams": 231,
+      "price": 103.4,
+      "rating": null,
+      "reviewCount": null,
+      "source": "https://www.netpharmacy.co.nz/products/thorne-research-creatine-alpha-gpc",
+      "confidence": "Discovered from retailer creatine product search.",
+      "fetchStatus": "live",
+      "discoverySource": "shopifySearchSuggest",
+      "available": true,
+      "fetchError": null,
+      "updatedAt": "2026-06-11T05:26:43.429Z"
+    },
+    {
+      "retailer": "Xplosiv Supplements",
+      "image": "https://www.google.com/s2/favicons?domain=xplosiv.nz&sz=128",
+      "shipping": {
+        "cost": 3.99,
+        "freeThreshold": 100,
+        "note": "Flat fee under $100; free nationwide over $100."
+      },
+      "pickup": "In-store availability. Locations include Albany, Manukau, Porirua, Merivale, Dunedin, and others.",
+      "stores": [
+        {
+          "name": "Xplosiv Albany",
+          "address": "219 Don McKinnon Drive, Albany, Auckland",
+          "lat": -36.728,
+          "lng": 174.708
+        },
+        {
+          "name": "Xplosiv Manukau",
+          "address": "Manukau, Auckland",
+          "lat": -36.992,
+          "lng": 174.879
+        },
+        {
+          "name": "Xplosiv Porirua",
+          "address": "Porirua, Wellington",
+          "lat": -41.134,
+          "lng": 174.84
+        },
+        {
+          "name": "Xplosiv Merivale",
+          "address": "Merivale, Christchurch",
+          "lat": -43.507,
+          "lng": 172.626
+        },
+        {
+          "name": "Xplosiv Dunedin",
+          "address": "Dunedin",
+          "lat": -45.879,
+          "lng": 170.503
+        }
+      ],
+      "deliveryAvailable": true,
+      "pickupAvailable": true,
+      "product": "Athletech Purest Creatine Monohydrate 1kg",
+      "category": "creatine",
+      "productImage": "https://xplosiv.nz/media/catalog/product/cache/11b455bf0f5ba089574d8374ebf9ed7f/a/t/athletechpu_restcreatine1kg_render.png",
+      "sizeGrams": 1000,
+      "price": 89.95,
+      "rating": null,
+      "reviewCount": null,
+      "source": "https://xplosiv.nz/athletech-purest-creatine-monohydrate-1kg.html",
+      "confidence": "Discovered from retailer creatine category page.",
+      "fetchStatus": "stale",
+      "discoverySource": "genericHtml",
+      "available": true,
+      "fetchError": "HTTP 429",
+      "updatedAt": null
     }
   ],
-  "discoveryRefreshedAt": "2026-06-09T06:07:05.163Z",
+  "discoveryRefreshedAt": "2026-06-11T05:26:11.113Z",
   "discoveryMode": "http-config"
 }
