@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>StackScout - Supplement Compare NZ</title>
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="src/styles.css?v=info-inline-1" />
+  </head>
+  <body>
+    <main class="app">
+      <section class="toolbar" aria-labelledby="page-title">
+        <div>
+          <p class="eyebrow">Build your stack for less with NZ’s supplement price checker</p>
+          <h1 id="page-title" class="brand-heading">
+            <img src="assets/stackscout-logo.svg" alt="StackScout" width="920" height="220" />
+          </h1>
+          <p class="summary">
+            Compare <span id="category-cycle" class="category-cycle">creatine</span> by real cost, size, reviews, shipping, and delivered total.
+          </p>
+          <p class="data-status" id="data-status">Loading product data...</p>
+        </div>
+      </section>
+
+      <nav class="category-tabs" role="tablist" aria-label="Supplement category">
+        <button class="category-tab active" type="button" role="tab" aria-selected="true" aria-controls="results-panel" data-category="creatine">Creatine</button>
+        <button class="category-tab" type="button" role="tab" aria-selected="false" aria-controls="results-panel" data-category="protein">Whey protein</button>
+        <button class="category-tab" type="button" role="tab" aria-selected="false" aria-controls="results-panel" data-category="pre_workout">Pre-workout</button>
+      </nav>
+
+      <div class="controls results-controls" aria-label="Sort and display controls">
+        <label class="sort-control">
+          <span class="control-label-row">
+            Sort
+            <span class="value-info">
+              <button class="info-button" type="button" aria-label="How best value is calculated" aria-describedby="value-tooltip">i</button>
+              <span class="value-tooltip" id="value-tooltip" role="tooltip">
+                Best value ranks available products by estimated delivered price per 100g: (item price + estimated shipping) / pack grams * 100. Unknown shipping is shown and ranked after confirmed shipping.
+              </span>
+            </span>
+          </span>
+          <select id="sort-select">
+            <option value="value">Best value</option>
+            <option value="value-desc">Highest price per 100g</option>
+            <option value="total-asc">Lowest delivered total</option>
+            <option value="total-desc">Highest delivered total</option>
+            <option value="price-asc">Lowest item price</option>
+            <option value="price-desc">Highest item price</option>
+            <option value="size-desc">Largest pack size</option>
+            <option value="size-asc">Smallest pack size</option>
+          </select>
+        </label>
+        <label>
+          Retailer
+          <select id="retailer-filter">
+            <option value="">All retailers</option>
+          </select>
+        </label>
+        <fieldset class="pack-filter">
+          <legend>Pack size</legend>
+          <label>
+            Min grams
+            <input id="min-pack-size" type="number" min="0" step="50" inputmode="numeric" placeholder="Any" />
+          </label>
+          <label>
+            Max grams
+            <input id="max-pack-size" type="number" min="0" step="50" inputmode="numeric" placeholder="Any" />
+          </label>
+        </fieldset>
+        <fieldset class="filter-group">
+          <legend>Quality filters</legend>
+          <label><input id="hide-shipping-unknown" type="checkbox" /> Hide shipping unknown</label>
+          <label><input id="only-checked-today" type="checkbox" /> Checked today only</label>
+          <label><input id="hide-stale" type="checkbox" checked /> Hide stale data</label>
+        </fieldset>
+      </div>
+
+      <section id="results-panel" class="results-panel" role="tabpanel" aria-label="Supplement results">
+        <section class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Retailer</th>
+                <th>Product</th>
+                <th>
+                  <button class="sort-header" type="button" data-sort-key="size" aria-label="Sort by pack size">
+                    Pack size <span data-sort-indicator aria-hidden="true"></span>
+                  </button>
+                </th>
+                <th>Reviews</th>
+                <th>
+                  <button class="sort-header" type="button" data-sort-key="price" aria-label="Sort by item price">
+                    Item price <span data-sort-indicator aria-hidden="true"></span>
+                  </button>
+                </th>
+                <th>Shipping</th>
+                <th>
+                  <button class="sort-header" type="button" data-sort-key="total" aria-label="Sort by delivered total">
+                    Delivered total <span data-sort-indicator aria-hidden="true"></span>
+                  </button>
+                </th>
+                <th>
+                  <button class="sort-header sort-header-stacked" type="button" data-sort-key="value" aria-label="Sort by price per 100 grams. Formula: estimated delivered total divided by pack grams times 100.">
+                    <span>Price per 100g</span>
+                    <small>delivered / g * 100</small>
+                    <span data-sort-indicator aria-hidden="true"></span>
+                  </button>
+                </th>
+                <th>My stack</th>
+              </tr>
+            </thead>
+            <tbody id="results-body"></tbody>
+          </table>
+        </section>
+
+        <section class="cards" id="cards" aria-label="Supplement cards"></section>
+
+        <div class="load-row">
+          <span id="result-count" aria-live="polite"></span>
+          <button id="load-more-button" type="button" hidden>Load more</button>
+        </div>
+      </section>
+
+      <section class="stack-panel" aria-labelledby="stack-title">
+        <div class="stack-head">
+          <div>
+            <h2 id="stack-title">My stack</h2>
+            <p id="stack-summary">No products added yet.</p>
+          </div>
+          <div class="stack-actions">
+            <span>Item subtotal <strong id="stack-total">$0.00</strong></span>
+            <span>Estimated delivered <strong id="stack-delivered-total">$0.00</strong></span>
+          </div>
+        </div>
+        <div class="stack-items" id="stack-items"></div>
+      </section>
+
+      <section class="featured-panel" aria-label="Featured products">
+        <div class="featured-head">
+          <h2>Featured comparisons</h2>
+          <button id="featured-toggle" class="featured-toggle" type="button" aria-pressed="false" aria-label="Pause carousel">
+            <svg class="icon-pause" aria-hidden="true" viewBox="0 0 24 24">
+              <path d="M8 5v14M16 5v14"></path>
+            </svg>
+            <svg class="icon-play" aria-hidden="true" viewBox="0 0 24 24">
+              <path d="M8 5v14l11-7z"></path>
+            </svg>
+          </button>
+        </div>
+        <div class="featured-rail" id="featured-rail"></div>
+      </section>
+
+      <section class="feedback-panel" aria-labelledby="feedback-title">
+        <h2 id="feedback-title">Help improve StackScout</h2>
+        <form id="feedback-form">
+          <label>
+            What should we check?
+            <select name="feedbackType">
+              <option value="missing_product">Missing product</option>
+              <option value="missing_retailer">Missing retailer</option>
+              <option value="wrong_price">Wrong price</option>
+              <option value="wrong_stock">Wrong stock</option>
+              <option value="general">General feedback</option>
+            </select>
+          </label>
+          <label>
+            Details
+            <textarea name="message" rows="4" maxlength="1200" placeholder="Tell us what is missing or wrong." required aria-describedby="feedback-status"></textarea>
+          </label>
+          <div class="feedback-grid">
+            <label>
+              Product or retailer
+              <input name="productName" maxlength="260" placeholder="Optional" />
+            </label>
+            <label>
+              Link
+              <input name="sourceUrl" type="url" maxlength="1200" placeholder="Optional retailer URL" aria-describedby="feedback-status" />
+            </label>
+          </div>
+          <button type="submit">Send feedback</button>
+          <p class="feedback-status" id="feedback-status" aria-live="polite"></p>
+        </form>
+      </section>
+
+      <section class="faq" aria-label="FAQ">
+        <h2>FAQ</h2>
+        <details open>
+          <summary>What does best value mean?</summary>
+          <p>
+            Best value means the lowest estimated delivered cost per 100g. This helps compare small tubs and large tubs fairly.
+          </p>
+        </details>
+        <details open>
+          <summary>How current is the data?</summary>
+          <p>
+            StackScout refreshes product data regularly where reliable retailer sources are available. Prices, stock, shipping, and reviews are snapshots, not final checkout quotes.
+          </p>
+        </details>
+        <details>
+          <summary>How does StackScout get product data?</summary>
+          <p>
+            StackScout checks NZ-accessible retailer sources such as product feeds, store platform data, product page metadata, and public product pages. It extracts comparable basics like product name, pack size, item price, availability, review signals, and shipping rules.
+          </p>
+        </details>
+        <details>
+          <summary>How can I trust the comparison?</summary>
+          <p>
+            Prices and availability are only used when they can be parsed from clear retailer evidence. Products also need a valid pack size, plausible price, and the right format for the category, so capsules, bundles, samples, and unrelated products are filtered out.
+          </p>
+        </details>
+        <details>
+          <summary>What happens when a retailer page cannot be checked?</summary>
+          <p>
+            If a retailer page fails or returns data that looks wrong, StackScout keeps the last saved product information and labels it as stale instead of treating it as fresh. Stale or unavailable products should not be treated as the best current deal.
+          </p>
+        </details>
+        <details>
+          <summary>What should I double-check before buying?</summary>
+          <p>
+            Check the retailer page for final shipping, rural fees, promo codes, stock, and product details. StackScout is a shortlist tool, so the retailer checkout is still the source of truth before you buy.
+          </p>
+        </details>
+      </section>
+    </main>
+
+    <script src="src/app.js?v=podium-rank-fix-1"></script>
+  </body>
+</html>

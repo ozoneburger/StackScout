@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" role="img" aria-labelledby="title desc">
+  <title id="title">Product placeholder</title>
+  <desc id="desc">A simple supplement tub placeholder.</desc>
+  <rect width="160" height="160" rx="14" fill="#f5f1e8"/>
+  <rect x="49" y="40" width="62" height="82" rx="10" fill="#ffffff" stroke="#dbe2dd" stroke-width="4"/>
+  <path d="M56 44h48l-5-14H61z" fill="#315c91"/>
+  <rect x="58" y="66" width="44" height="30" rx="5" fill="#0b6b58"/>
+  <path d="M66 78h28M68 87h24" stroke="#ffffff" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="116" cy="46" r="14" fill="#b5422f"/>
+  <path d="M109 46h14" stroke="#ffffff" stroke-width="4" stroke-linecap="round"/>
+</svg>

@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">StackScout mark</title>
+  <desc id="desc">A sleek stacked comparison mark with a scout lens.</desc>
+  <defs>
+    <linearGradient id="mark-bg" x1="44" x2="212" y1="28" y2="228" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#10251f"/>
+      <stop offset="1" stop-color="#0b6b58"/>
+    </linearGradient>
+    <linearGradient id="layer-green" x1="63" x2="171" y1="65" y2="150" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#19a37f"/>
+      <stop offset="1" stop-color="#0b6b58"/>
+    </linearGradient>
+    <linearGradient id="layer-blue" x1="84" x2="197" y1="99" y2="181" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#4f7fba"/>
+      <stop offset="1" stop-color="#315c91"/>
+    </linearGradient>
+  </defs>
+  <rect width="256" height="256" rx="52" fill="url(#mark-bg)"/>
+  <path fill="#fff" fill-opacity=".12" d="M45 58c0-13 10-23 23-23h104c13 0 23 10 23 23v9H45z"/>
+  <path fill="url(#layer-green)" d="M58 77c0-9 7-16 16-16h76c9 0 16 7 16 16v18c0 9-7 16-16 16H74c-9 0-16-7-16-16z"/>
+  <path fill="url(#layer-blue)" d="M76 111c0-9 7-16 16-16h82c9 0 16 7 16 16v18c0 9-7 16-16 16H92c-9 0-16-7-16-16z"/>
+  <path fill="#ffffff" d="M58 145c0-9 7-16 16-16h76c9 0 16 7 16 16v18c0 9-7 16-16 16H74c-9 0-16-7-16-16z"/>
+  <path fill="#b5422f" d="M90 73h37v14H90z"/>
+  <path fill="#0b6b58" d="M90 142h37v14H90z"/>
+  <path fill="#17211d" d="M106 153h40v11h-40z" opacity=".26"/>
+  <circle cx="163" cy="154" r="44" fill="#f5f1e8" stroke="#17211d" stroke-width="14"/>
+  <circle cx="163" cy="154" r="21" fill="none" stroke="#315c91" stroke-width="10"/>
+  <path fill="#17211d" d="m190 185 17-17 31 31c5 5 5 13 0 18l-2 2c-5 5-13 5-18 0z"/>
+  <path fill="#fff" fill-opacity=".75" d="m144 134 11-5 7 14 15-24 11 7-26 41z"/>
+</svg>

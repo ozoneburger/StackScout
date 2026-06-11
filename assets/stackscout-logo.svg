@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 220" role="img" aria-labelledby="title desc">
+  <title id="title">StackScout logo</title>
+  <desc id="desc">StackScout wordmark with a stacked comparison scout mark.</desc>
+  <defs>
+    <linearGradient id="bg" x1="35" x2="185" y1="25" y2="195" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#10251f"/>
+      <stop offset="1" stop-color="#0b6b58"/>
+    </linearGradient>
+    <linearGradient id="green" x1="62" x2="146" y1="59" y2="126" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#19a37f"/>
+      <stop offset="1" stop-color="#0b6b58"/>
+    </linearGradient>
+    <linearGradient id="blue" x1="77" x2="166" y1="86" y2="151" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#4f7fba"/>
+      <stop offset="1" stop-color="#315c91"/>
+    </linearGradient>
+  </defs>
+  <rect x="20" y="18" width="184" height="184" rx="38" fill="url(#bg)"/>
+  <path fill="#fff" fill-opacity=".12" d="M52 60c0-10 8-18 18-18h78c10 0 18 8 18 18v7H52z"/>
+  <path fill="url(#green)" d="M58 72c0-7 6-13 13-13h60c7 0 13 6 13 13v14c0 7-6 13-13 13H71c-7 0-13-6-13-13z"/>
+  <path fill="url(#blue)" d="M72 99c0-7 6-13 13-13h66c7 0 13 6 13 13v14c0 7-6 13-13 13H85c-7 0-13-6-13-13z"/>
+  <path fill="#fff" d="M58 126c0-7 6-13 13-13h60c7 0 13 6 13 13v14c0 7-6 13-13 13H71c-7 0-13-6-13-13z"/>
+  <path fill="#b5422f" d="M82 69h31v11H82z"/>
+  <path fill="#0b6b58" d="M82 124h31v11H82z"/>
+  <circle cx="141" cy="133" r="34" fill="#f5f1e8" stroke="#17211d" stroke-width="11"/>
+  <circle cx="141" cy="133" r="16" fill="none" stroke="#315c91" stroke-width="8"/>
+  <path fill="#17211d" d="m162 157 13-13 25 25c4 4 4 10 0 14l-2 2c-4 4-10 4-14 0z"/>
+  <path fill="#fff" fill-opacity=".78" d="m126 118 9-4 5 11 12-19 9 6-21 32z"/>
+  <text x="236" y="125" fill="#17211d" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="78" font-weight="950" letter-spacing="0">
+    Stack<tspan fill="#0b6b58">Scout</tspan>
+  </text>
+  <text x="242" y="165" fill="#5a665f" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="20" font-weight="800" letter-spacing="0">
+    COMPARE THE STACK, FIND THE VALUE
+  </text>
+</svg>
