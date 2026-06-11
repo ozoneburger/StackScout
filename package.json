@@ -4,12 +4,23 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "start": "node server.js",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "legacy:start": "node server.js",
     "fetch": "node scripts/fetch-products.js",
     "discover": "node scripts/discover-products.js",
     "db:schema": "node scripts/apply-schema.js",
     "db:check": "node scripts/check-schema.js",
     "video:youtube:001": "node scripts/create-youtube-video-001.mjs",
     "video:youtube:001:probe": "ffprobe -v error -select_streams v:0 -show_entries stream=width,height,r_frame_rate:format=duration,size -of json assets/youtube/video-001-website-pov.mp4"
+  },
+  "dependencies": {
+    "next": "^16.0.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "overrides": {
+    "postcss": "^8.5.10"
   }
 }
