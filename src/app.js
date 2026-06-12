@@ -28,8 +28,6 @@ const stackDeliveredTotal = document.querySelector("#stack-delivered-total");
 const sortHeaders = document.querySelectorAll(".sort-header");
 const categoryTabs = document.querySelectorAll(".category-tab");
 const retailerFilter = document.querySelector("#retailer-filter");
-const minPackSizeFilter = document.querySelector("#min-pack-size");
-const maxPackSizeFilter = document.querySelector("#max-pack-size");
 const hideShippingUnknownFilter = document.querySelector("#hide-shipping-unknown");
 const onlyCheckedTodayFilter = document.querySelector("#only-checked-today");
 const hideStaleFilter = document.querySelector("#hide-stale");
@@ -71,6 +69,12 @@ function estimatedTotal(product) {
 function pricePer100g(product) {
   if (Number.isFinite(product.pricePer100g)) return product.pricePer100g;
   return (estimatedTotal(product) / product.sizeGrams) * 100;
+}
+
+function formatPackSize(sizeGrams) {
+  if (!Number.isFinite(sizeGrams)) return "N/A";
+  if (sizeGrams < 1000) return `${sizeGrams.toLocaleString()}g`;
+  return `${(sizeGrams / 1000).toLocaleString("en-NZ", { maximumFractionDigits: 2 })} kg`;
 }
 
 function shippingSortGroup(product) {
@@ -139,8 +143,6 @@ function trackAnalyticsEvent(eventType, metadata = {}) {
     metadata: {
       sort: sortSelect?.value,
       retailer: retailerFilter?.value,
-      minPackSize: minPackSizeFilter?.value,
-      maxPackSize: maxPackSizeFilter?.value,
       hideShippingUnknown: hideShippingUnknownFilter?.checked,
       onlyCheckedToday: onlyCheckedTodayFilter?.checked,
       hideStale: hideStaleFilter?.checked,
@@ -719,19 +721,9 @@ function comparableProducts() {
   return products.filter((product) => product.available !== false && product.fetchStatus !== "unavailable");
 }
 
-function numericFilterValue(control) {
-  if (!control?.value) return null;
-  const value = Number(control.value);
-  return Number.isFinite(value) ? value : null;
-}
-
 function filteredProducts() {
-  const minPackSize = numericFilterValue(minPackSizeFilter);
-  const maxPackSize = numericFilterValue(maxPackSizeFilter);
   return comparableProducts()
     .filter((product) => !retailerFilter?.value || product.retailer === retailerFilter.value)
-    .filter((product) => minPackSize === null || product.sizeGrams >= minPackSize)
-    .filter((product) => maxPackSize === null || product.sizeGrams <= maxPackSize)
     .filter((product) => !hideShippingUnknownFilter?.checked || !hasUnknownShipping(product))
     .filter((product) => !onlyCheckedTodayFilter?.checked || checkedToday(product))
     .filter((product) => !hideStaleFilter?.checked || product.fetchStatus !== "stale")
@@ -841,7 +833,7 @@ function featuredProducts(items) {
     {
       label: "Largest available pack",
       product: firstBy(items, (a, b) => b.sizeGrams - a.sizeGrams),
-      value: (product) => `${product.sizeGrams.toLocaleString()}g`,
+      value: (product) => formatPackSize(product.sizeGrams),
     },
     {
       label: "Most reviewed",
@@ -950,7 +942,7 @@ function renderTable(items, rankItems = items) {
           </td>
           <td>
             <div class="metric metric-size">
-              <strong>${product.sizeGrams.toLocaleString()}g</strong>
+              <strong>${formatPackSize(product.sizeGrams)}</strong>
               <span>pack size</span>
             </div>
           </td>
@@ -1006,7 +998,7 @@ function renderCards(items, rankItems = items) {
           )}>${escapeHtml(product.product)}</a>
           ${trustChips(product)}
           <div class="meta">
-            <div><span>Pack size</span><strong>${product.sizeGrams.toLocaleString()}g</strong></div>
+            <div><span>Pack size</span><strong>${formatPackSize(product.sizeGrams)}</strong></div>
             <div><span>Item price</span><strong>${money.format(product.price)}</strong></div>
             <div><span>Delivered total</span><strong>${money.format(estimatedTotal(product))}</strong></div>
             <div><span>Price per 100g</span><strong class="value">${money.format(pricePer100g(product))}</strong></div>
@@ -1133,8 +1125,6 @@ function currentControlState() {
     selectedCategory,
     sortSelect.value,
     retailerFilter?.value ?? "",
-    minPackSizeFilter?.value ?? "",
-    maxPackSizeFilter?.value ?? "",
     hideShippingUnknownFilter?.checked ? "shipping-confirmed" : "shipping-all",
     onlyCheckedTodayFilter?.checked ? "today" : "any-day",
     hideStaleFilter?.checked ? "fresh" : "with-stale",
@@ -1190,7 +1180,7 @@ sortSelect.addEventListener("change", () => {
   trackAnalyticsEvent("sort_change", { source: "select" });
   resetAndRender();
 });
-[retailerFilter, minPackSizeFilter, maxPackSizeFilter, hideShippingUnknownFilter, onlyCheckedTodayFilter, hideStaleFilter].forEach((control) => {
+[retailerFilter, hideShippingUnknownFilter, onlyCheckedTodayFilter, hideStaleFilter].forEach((control) => {
   control?.addEventListener("change", () => {
     trackAnalyticsEvent("sort_change", { source: "filter", control: control.id });
     resetAndRender();

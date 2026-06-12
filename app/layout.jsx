@@ -1,4 +1,5 @@
 import "../src/styles.css";
+import { SiteFooter } from "../components/SiteFooter.jsx";
 
 export const metadata = {
   title: "StackScout - Supplement Compare NZ",
@@ -8,7 +9,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        {children}
+        <SiteFooter />
+      </body>
     </html>
   );
 }
