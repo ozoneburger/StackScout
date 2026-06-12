@@ -12,21 +12,21 @@ A NZ supplement comparison prototype with a local live-refreshing data fetcher.
 - Serves a lightweight production health check through `/api/health`.
 - Serves first-party click stats through `/api/stats` and a local stats dashboard at `/stats.html`.
 - Accepts missing-product and data-quality feedback through `/api/feedback` after the latest schema is applied.
-- Refreshes product pages on server start and once per day while the local server is running.
-- Supports Vercel deployment through `api/index.js`, `vercel.json`, and `/api/cron/refresh`.
+- Refreshes product pages through a protected Vercel Cron endpoint in production.
+- Keeps `npm run fetch` and `npm run discover` as local/manual repair tools.
 
 ## Run
 
 ```bash
-npm start
+npm run dev
 ```
 
-Then open `http://localhost:4173`.
+Then open `http://localhost:3000`.
 
 Check whether the local server is alive:
 
 ```bash
-curl http://localhost:4173/api/health
+curl http://localhost:3000/api/health
 ```
 
 Refresh product data once without starting the server:
@@ -51,7 +51,7 @@ npm run discover
 6. Set `CRON_SECRET` in production to protect `/api/cron/refresh`.
 7. Set `UPSTASH_REDIS_REST_URL` and `UPSTASH_REDIS_REST_TOKEN` in production for shared rate limits.
 8. Run `npm run db:check`.
-9. Run `npm run fetch` or `npm start`.
+9. Deploy to Vercel production so `vercel.json` can register the cron job.
 
 When Supabase env vars are present, discovery upserts products, and refresh writes current product state plus price history for available products.
 
@@ -82,6 +82,43 @@ Trigger the Vercel cron refresh endpoint manually:
 curl https://stackscout.co.nz/api/cron/refresh \
   -H "Authorization: Bearer [LONG_RANDOM_CRON_SECRET]"
 ```
+
+## Production refresh workflow
+
+Production refreshes should be owned by Vercel Cron, not Codex or a developer laptop.
+
+Current production path:
+
+```text
+Vercel Cron -> /api/cron/refresh -> discoverProducts -> refreshProducts -> Supabase
+```
+
+The schedule is configured in `vercel.json`:
+
+```json
+{
+  "crons": [
+    {
+      "path": "/api/cron/refresh",
+      "schedule": "0 16 * * *"
+    }
+  ]
+}
+```
+
+That runs once per day at 16:00 UTC. Vercel Cron invokes production deployments only. The cron route requires `Authorization: Bearer [LONG_RANDOM_CRON_SECRET]`, so `CRON_SECRET` must be set in Vercel production.
+
+Operational checks:
+
+- `/api/health` exposes whether cron auth is configured and whether the last successful refresh is stale.
+- `/api/status` is admin-protected and includes the latest `refresh_runs` row plus the latest successful run.
+- `refresh_runs` in Supabase is the durable audit log for scraper runs.
+
+Manual tools:
+
+- `npm run discover` updates local `data/products.json` from retailer discovery.
+- `npm run fetch` refreshes local `data/products.json` prices and writes Supabase history when Supabase env vars are set.
+- Use those scripts for local debugging or manual repair, not as the daily production scheduler.
 
 Open the protected stats dashboard in production by visiting:
 

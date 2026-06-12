@@ -1,5 +1,6 @@
-let products = [];
-let refreshedAt = null;
+const initialPayload = window.__STACKSCOUT_INITIAL_PRODUCTS__;
+let products = Array.isArray(initialPayload?.products) ? initialPayload.products : [];
+let refreshedAt = initialPayload?.refreshedAt ?? null;
 const productPlaceholder = "assets/product-placeholder.svg";
 const initialVisibleCount = 12;
 const loadMoreStep = 12;
