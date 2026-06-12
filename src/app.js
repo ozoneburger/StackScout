@@ -1060,7 +1060,7 @@ function renderStack() {
           <a class="stack-go" href="${safeUrl(product.source)}" target="_blank" rel="noreferrer" ${outboundAttrs(
             product,
             "stack-go",
-          )}>Go to</a>
+          )}>Buy Now</a>
           <div class="stack-qty" aria-label="Quantity controls">
             <button type="button" data-stack-action="decrement" data-source="${escapeHtml(item.source)}" aria-label="Decrease quantity for ${escapeHtml(product.product)}">-</button>
             <span>${item.quantity}</span>

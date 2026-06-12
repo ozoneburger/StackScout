@@ -74,67 +74,65 @@
         </fieldset>
       </div>
 
-      <div class="compare-layout">
-        <section class="stack-panel" aria-labelledby="stack-title">
-          <div class="stack-head">
-            <div>
-              <h2 id="stack-title">My stack</h2>
-              <p id="stack-summary">No products added yet.</p>
-            </div>
-            <div class="stack-actions">
-              <span>Item subtotal <strong id="stack-total">$0.00</strong></span>
-              <span>Estimated delivered <strong id="stack-delivered-total">$0.00</strong></span>
-            </div>
-          </div>
-          <div class="stack-items" id="stack-items"></div>
+      <section id="results-panel" class="results-panel" role="tabpanel" aria-label="Supplement results">
+        <section class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Retailer</th>
+                <th>Product</th>
+                <th>
+                  <button class="sort-header" type="button" data-sort-key="size" aria-label="Sort by pack size">
+                    Pack size <span data-sort-indicator aria-hidden="true"></span>
+                  </button>
+                </th>
+                <th>Reviews</th>
+                <th>
+                  <button class="sort-header" type="button" data-sort-key="price" aria-label="Sort by item price">
+                    Item price <span data-sort-indicator aria-hidden="true"></span>
+                  </button>
+                </th>
+                <th>Shipping</th>
+                <th>
+                  <button class="sort-header" type="button" data-sort-key="total" aria-label="Sort by delivered total">
+                    Delivered total <span data-sort-indicator aria-hidden="true"></span>
+                  </button>
+                </th>
+                <th>
+                  <button class="sort-header sort-header-stacked" type="button" data-sort-key="value" aria-label="Sort by price per 100 grams. Formula: estimated delivered total divided by pack grams times 100.">
+                    <span>Price per 100g</span>
+                    <small>delivered / g * 100</small>
+                    <span data-sort-indicator aria-hidden="true"></span>
+                  </button>
+                </th>
+                <th>My stack</th>
+              </tr>
+            </thead>
+            <tbody id="results-body"></tbody>
+          </table>
         </section>
 
-        <section id="results-panel" class="results-panel" role="tabpanel" aria-label="Supplement results">
-          <section class="table-wrap">
-            <table>
-              <thead>
-                <tr>
-                  <th>Retailer</th>
-                  <th>Product</th>
-                  <th>
-                    <button class="sort-header" type="button" data-sort-key="size" aria-label="Sort by pack size">
-                      Pack size <span data-sort-indicator aria-hidden="true"></span>
-                    </button>
-                  </th>
-                  <th>Reviews</th>
-                  <th>
-                    <button class="sort-header" type="button" data-sort-key="price" aria-label="Sort by item price">
-                      Item price <span data-sort-indicator aria-hidden="true"></span>
-                    </button>
-                  </th>
-                  <th>Shipping</th>
-                  <th>
-                    <button class="sort-header" type="button" data-sort-key="total" aria-label="Sort by delivered total">
-                      Delivered total <span data-sort-indicator aria-hidden="true"></span>
-                    </button>
-                  </th>
-                  <th>
-                    <button class="sort-header sort-header-stacked" type="button" data-sort-key="value" aria-label="Sort by price per 100 grams. Formula: estimated delivered total divided by pack grams times 100.">
-                      <span>Price per 100g</span>
-                      <small>delivered / g * 100</small>
-                      <span data-sort-indicator aria-hidden="true"></span>
-                    </button>
-                  </th>
-                  <th>My stack</th>
-                </tr>
-              </thead>
-              <tbody id="results-body"></tbody>
-            </table>
-          </section>
+        <section class="cards" id="cards" aria-label="Supplement cards"></section>
 
-          <section class="cards" id="cards" aria-label="Supplement cards"></section>
+        <div class="load-row">
+          <span id="result-count" aria-live="polite"></span>
+          <button id="load-more-button" type="button" hidden>Load more</button>
+        </div>
+      </section>
 
-          <div class="load-row">
-            <span id="result-count" aria-live="polite"></span>
-            <button id="load-more-button" type="button" hidden>Load more</button>
+      <section class="stack-panel" aria-labelledby="stack-title">
+        <div class="stack-head">
+          <div>
+            <h2 id="stack-title">My stack</h2>
+            <p id="stack-summary">No products added yet.</p>
           </div>
-        </section>
-      </div>
+          <div class="stack-actions">
+            <span>Item subtotal <strong id="stack-total">$0.00</strong></span>
+            <span>Estimated delivered <strong id="stack-delivered-total">$0.00</strong></span>
+          </div>
+        </div>
+        <div class="stack-items" id="stack-items"></div>
+      </section>
 
       <section class="featured-panel" aria-label="Featured products">
         <div class="featured-head">
