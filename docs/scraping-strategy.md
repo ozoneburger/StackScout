@@ -51,8 +51,11 @@ Each retailer config should include:
 - `adapterType`
 - `discoverySources` with `category`, `adapterType`, and `url`
 - `maxCandidates`
+- `scrapePolicy` with `minDelayMs`, `maxConcurrent`, `cacheTtlMs`, `cooldownOn429Ms`, and `retries`
 - `shipping`
 - `enabled`
 - `notes`
 
 Discovery should only run configs that are enabled and supported by the current adapter code. Older single-category configs may still use `discoveryUrls`, but new category work should use `discoverySources`.
+
+Most retailers should inherit the default scrape policy. Override only retailers with known rate limits, blocking behavior, or fragile HTML sources. Do not slow all retailers to the strictest policy unless the refresh job can tolerate the extra runtime.

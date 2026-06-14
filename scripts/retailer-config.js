@@ -4,6 +4,22 @@ const categorySearchTerms = {
   pre_workout: ["pre workout", "pre-workout"],
 };
 
+export const defaultScrapePolicy = {
+  minDelayMs: 1000,
+  maxConcurrent: 2,
+  cacheTtlMs: 0,
+  cooldownOn429Ms: 15 * 60 * 1000,
+  retries: 2,
+};
+
+export const strictScrapePolicy = {
+  minDelayMs: 10000,
+  maxConcurrent: 1,
+  cacheTtlMs: 6 * 60 * 60 * 1000,
+  cooldownOn429Ms: 60 * 60 * 1000,
+  retries: 1,
+};
+
 function shopifySearchSources(baseUrl, categories = Object.keys(categorySearchTerms)) {
   return categories.flatMap((category) =>
     categorySearchTerms[category].map((term) => ({
@@ -78,7 +94,7 @@ function nzProteinSources() {
   }));
 }
 
-export const retailerConfigs = [
+const rawRetailerConfigs = [
   {
     name: "Sportsfuel",
     baseUrl: "https://www.sportsfuel.co.nz",
@@ -227,6 +243,7 @@ export const retailerConfigs = [
     },
     enabled: true,
     notes: "Magento HTML/search discovery across StackScout MVP categories.",
+    scrapePolicy: strictScrapePolicy,
   },
   {
     name: "Sprint Fit",
@@ -272,6 +289,14 @@ export const retailerConfigs = [
   },
 ];
 
+export const retailerConfigs = rawRetailerConfigs.map((config) => ({
+  ...config,
+  scrapePolicy: {
+    ...defaultScrapePolicy,
+    ...(config.scrapePolicy ?? {}),
+  },
+}));
+
 export const discoveryConfigs = retailerConfigs
   .filter((config) => config.enabled)
   .flatMap((config) => {
@@ -291,5 +316,6 @@ export const discoveryConfigs = retailerConfigs
       baseUrl: config.baseUrl,
       maxCandidates: config.maxCandidates,
       shipping: config.shipping,
+      scrapePolicy: config.scrapePolicy,
     }));
   });
