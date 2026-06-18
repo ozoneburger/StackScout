@@ -1,6 +1,23 @@
 import { supabaseConfig, supabaseRequest } from "./supabase-history.js";
 
 const dayMs = 24 * 60 * 60 * 1000;
+const trackedCategories = [
+  "creatine",
+  "whey_protein",
+  "protein_isolate",
+  "plant_based_protein",
+  "mass_gainer",
+  "protein_bars",
+  "pre_workout",
+  "non_stim_pre_workout",
+  "electrolytes",
+];
+const trackedCategorySet = new Set(trackedCategories);
+
+function normalizedCategory(category) {
+  if (category === "protein") return "whey_protein";
+  return trackedCategorySet.has(category) ? category : "unknown";
+}
 
 function emptyStats() {
   return {
@@ -80,25 +97,21 @@ export async function readAnalyticsStats() {
       const current = retailerCategoryMap.get(row.retailer) ?? {
         retailer: row.retailer,
         total: 0,
-        creatine: 0,
-        protein: 0,
-        pre_workout: 0,
+        ...Object.fromEntries(trackedCategories.map((category) => [category, 0])),
         unknown: 0,
       };
-      const category = ["creatine", "protein", "pre_workout"].includes(row.category)
-        ? row.category
-        : "unknown";
+      const category = normalizedCategory(row.category);
       current.total += 1;
       current[category] += 1;
       retailerCategoryMap.set(row.retailer, current);
     }
-    increment(categoryMap, row.category);
+    increment(categoryMap, normalizedCategory(row.category));
     increment(productMap, `${row.product_name} | ${row.retailer}`);
     increment(locationMap, row.click_location);
   }
   for (const row of analyticsRows) {
     increment(eventTypeMap, row.event_type);
-    increment(analyticsCategoryMap, row.category);
+    increment(analyticsCategoryMap, normalizedCategory(row.category));
   }
 
   return {

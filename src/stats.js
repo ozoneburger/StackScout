@@ -92,8 +92,14 @@ function renderRetailerCategories(items) {
               <strong>${escapeHtml(item.retailer)}</strong>
               <span>Total ${Number(item.total ?? 0).toLocaleString()}</span>
               <em>Creatine ${Number(item.creatine ?? 0).toLocaleString()}</em>
-              <em>Protein ${Number(item.protein ?? 0).toLocaleString()}</em>
+              <em>Whey ${Number(item.whey_protein ?? 0).toLocaleString()}</em>
+              <em>Isolate ${Number(item.protein_isolate ?? 0).toLocaleString()}</em>
+              <em>Plant ${Number(item.plant_based_protein ?? 0).toLocaleString()}</em>
+              <em>Gainer ${Number(item.mass_gainer ?? 0).toLocaleString()}</em>
+              <em>Bars ${Number(item.protein_bars ?? 0).toLocaleString()}</em>
               <em>Pre-workout ${Number(item.pre_workout ?? 0).toLocaleString()}</em>
+              <em>Non-stim ${Number(item.non_stim_pre_workout ?? 0).toLocaleString()}</em>
+              <em>Electrolytes ${Number(item.electrolytes ?? 0).toLocaleString()}</em>
             </div>
           `,
         )

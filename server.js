@@ -79,9 +79,13 @@ function emptyResponse(response, status) {
 }
 
 function securityHeaders() {
+  const scriptSrc =
+    process.env.NODE_ENV === "production"
+      ? "'self' 'unsafe-inline'"
+      : "'self' 'unsafe-inline' 'unsafe-eval'";
   return {
     "Content-Security-Policy":
-      "default-src 'self'; img-src 'self' https: http: data:; connect-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'",
+      `default-src 'self'; img-src 'self' https: http: data:; connect-src 'self'; script-src ${scriptSrc}; style-src 'self' 'unsafe-inline'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'`,
     "Referrer-Policy": "strict-origin-when-cross-origin",
     "X-Content-Type-Options": "nosniff",
     "X-Frame-Options": "DENY",
@@ -309,6 +313,31 @@ function pricePer100g(product) {
   return (estimatedTotal(product) / product.sizeGrams) * 100;
 }
 
+function normalizedCategory(product) {
+  const category = product.category ?? "creatine";
+  const text = `${product.product ?? ""}`.toLowerCase();
+  if (
+    category === "pre_workout" &&
+    /\b(non[-\s]?stim|stim[-\s]?free|stimulant[-\s]?free|caffeine[-\s]?free|zero caffeine)\b/.test(text)
+  ) {
+    return "non_stim_pre_workout";
+  }
+  if (category !== "protein") return category;
+
+  if (/\b(isolate|iso[-\s]?100)\b/.test(text)) return "protein_isolate";
+  if (/\b(vegan|plant[-\s]?based|plant protein|pea|rice|soy)\b/.test(text)) {
+    return "plant_based_protein";
+  }
+  if (/\b(mass gainer|weight gainer|\bgainer\b)\b/.test(text)) return "mass_gainer";
+  if (/\b(bar|bars|cookie|cookies|brownie|brownies)\b/.test(text)) return "protein_bars";
+  return "whey_protein";
+}
+
+function normalizedRequestedCategory(category) {
+  if (category === "protein") return "whey_protein";
+  return category;
+}
+
 function shippingConfidence(product) {
   if (!product.deliveryAvailable) return "none";
   return estimatedShipping(product) === null ? "unknown" : "estimated";
@@ -363,7 +392,7 @@ function publicProduct(product) {
   const warning = rankingWarning(product);
 
   return {
-    category: product.category ?? "creatine",
+    category: normalizedCategory(product),
     retailer: product.retailer,
     image: product.image,
     product: product.product,
@@ -429,16 +458,16 @@ async function productForSourceUrl(sourceUrl) {
 async function serveProductsApi(url, response) {
   const dataset = await readProductDataset();
   const includeUnavailable = url.searchParams.get("includeUnavailable") === "true";
-  const category = url.searchParams.get("category");
+  const category = normalizedRequestedCategory(url.searchParams.get("category"));
   const sort = url.searchParams.get("sort") ?? "value";
   const allProducts = dataset.products ?? [];
   const categoryProducts = category
-    ? allProducts.filter((product) => (product.category ?? "creatine") === category)
+    ? allProducts.filter((product) => normalizedCategory(product) === category)
     : allProducts;
   const filteredProducts = includeUnavailable ? categoryProducts : categoryProducts.filter(isAvailable);
   const products = sortProducts(filteredProducts, sort).map(publicProduct);
   const byCategory = allProducts.reduce((counts, product) => {
-    const key = product.category ?? "creatine";
+    const key = normalizedCategory(product);
     counts[key] = (counts[key] ?? 0) + 1;
     return counts;
   }, {});
