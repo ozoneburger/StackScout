@@ -1,19 +1,32 @@
 # StackScout
 
-A NZ supplement comparison prototype with a local live-refreshing data fetcher.
+A NZ supplement comparison app for comparing real delivered supplement costs across NZ-accessible retailers.
 
 ## What it does
 
 - Compares NZ-accessible supplement products by price, size, estimated shipping, reviews, delivered total, and price per 100g.
-- Discovers multiple creatine products from enabled retailer adapters.
-- Sorts by best value, item price, pack size, or delivered total.
-- Shows a featured carousel, top-three podium badges, load more results, and a local "My stack" basket.
+- Supports creatine, whey protein, protein isolate, plant-based protein, mass gainer, protein bars, pre-workout, non-stim pre-workout, and electrolytes where usable data exists.
+- Discovers products from enabled retailer adapters, then filters out unrelated formats such as capsules, bundles, samples, accessories, and category pollution.
+- Sorts by best value, item price, pack size, delivered total, or highest price per 100g.
+- Shows quality filters for unknown shipping, checked-today data, and stale data.
+- Shows product images, trust labels, top-three podium badges, a featured carousel, load more results, and a local "My stack" basket.
+- Stores the stack in browser local storage and tracks item subtotal plus estimated delivered stack total.
+- Shows price-history charts when Supabase history exists for a product.
 - Serves public product data through `/api/products`, with `data/products.json` kept as a local cache/fallback.
 - Serves a lightweight production health check through `/api/health`.
-- Serves first-party click stats through `/api/stats` and a local stats dashboard at `/stats.html`.
+- Serves admin-protected operational status through `/api/status`.
+- Serves first-party click and product-event stats through `/api/stats` and the stats dashboard at `/stats` or `/stats.html`.
 - Accepts missing-product and data-quality feedback through `/api/feedback` after the latest schema is applied.
 - Refreshes product pages through a protected Vercel Cron endpoint in production.
 - Keeps `npm run fetch` and `npm run discover` as local/manual repair tools.
+
+## Public pages
+
+- `/` - main StackScout comparison app, initially loaded with creatine.
+- `/creatine`, `/protein`, `/pre-workout` - dynamic category landing pages with comparison data and SEO panels.
+- `/best-creatine-nz`, `/cheap-creatine-nz`, `/where-to-buy-creatine-nz` - buyer-intent creatine comparison pages.
+- `/about`, `/faq`, `/contact`, `/privacy`, `/disclaimer` - trust, support, and policy pages.
+- `/robots.txt` and `/sitemap.xml` - search indexing controls for public pages.
 
 ## Run
 
@@ -41,6 +54,12 @@ Discover products once without starting the server:
 npm run discover
 ```
 
+Build the Next.js app:
+
+```bash
+npm run build
+```
+
 ## Supabase price history
 
 1. Create a Supabase project.
@@ -53,7 +72,7 @@ npm run discover
 8. Run `npm run db:check`.
 9. Deploy to Vercel production so `vercel.json` can register the cron job.
 
-When Supabase env vars are present, discovery upserts products, and refresh writes current product state plus price history for available products.
+When Supabase env vars are present, discovery upserts products, and refresh writes current product state plus price and availability history for available products.
 
 The schema also creates `outbound_clicks`, `analytics_events`, `feedback_reports`, and `refresh_runs` for MVP analytics, feedback collection, and scraper run tracking. Re-run the schema after pulling changes that add new tables or analytics columns.
 
@@ -128,6 +147,8 @@ https://stackscout.co.nz/stats.html?admin_token=[LONG_RANDOM_ADMIN_TOKEN]
 
 The server stores the token in an HttpOnly cookie and redirects to `/stats.html`.
 
+`/api/status` uses the same admin token in production and reports product counts, fetch-status counts, category counts, and the latest refresh-run metadata.
+
 ## Rate limiting
 
 Public write endpoints are rate-limited:
@@ -146,11 +167,27 @@ Outbound clicks are stored as raw events and marked with `credible_click=false` 
 
 The app uses lightweight HTTP fetches against retailer product pages. If a fetch fails or returns an implausible value, the app keeps the last-known-good saved data and marks the row as stale.
 
-Chemist Warehouse currently uses the generic HTTP parser: fetch the product HTML, parse JSON-LD product data first, then Open Graph/product meta tags, then simple price patterns. This avoids browser automation, but a retailer-specific adapter would be safer if their markup changes.
+Current coverage snapshot:
+
+- Local cache audit on 2026-06-16: 297 tracked products, 262 displayed available products, 35 hidden unavailable products, 13 retailers with displayed products, and 12 enabled automated discovery configs.
+- Running Supabase-backed local API on 2026-06-17 returned 299 total products and 54 available creatine products.
+- Categories with real rows: creatine, whey protein, protein isolate, plant-based protein, mass gainer, protein bars, pre-workout, non-stim pre-workout, and electrolytes.
+- Known low-confidence coverage: BN Healthy has no displayed products; iHerb NZ remains a manual/stale fallback because server-side fetching is blocked.
+
+Chemist Warehouse currently uses a retailer search adapter for discovery plus the shared product refresh parser. The refresh parser checks JSON-LD product data first, then Open Graph/product meta tags, then simple price patterns. This avoids browser automation, but retailer markup changes can still break parsing.
 
 Shipping thresholds are still configured manually because product pages rarely expose reliable checkout data.
 
 Sportsfuel uses Shopify product JSON, so the fetcher selects the configured 1kg variant from its live variant list. iHerb currently blocks server-side HTTP fetching with a Cloudflare challenge, so it needs an approved API/feed, affiliate data source, or manual last-known-good fallback.
+
+The MVP value formula is still estimated delivered price per 100g:
+
+```text
+delivered_total = item_price + estimated_shipping
+price_per_100g = delivered_total / size_grams * 100
+```
+
+That is useful for powders and tubs, but weaker for protein bars, electrolytes, and pre-workout. Future category-specific ranking should use better evidence when available, such as cost per protein gram, cost per serve, or active-ingredient-aware comparisons.
 
 Use Playwright only for retailers that require rendered JavaScript and do not expose stable JSON/product metadata. It is slower, heavier to host, easier to block, and needs stricter timeout/retry controls.
 
@@ -159,6 +196,10 @@ Use Playwright only for retailers that require rendered JavaScript and do not ex
 The durable scraping plan lives in `docs/scraping-strategy.md`.
 
 The MVP launch checklist lives in `docs/launch-plan.md`.
+
+The current retailer coverage dashboard lives in `docs/retailer-dashboard.md`.
+
+SEO planning docs live in `docs/seo/`.
 
 Retailer definitions live in `scripts/retailer-config.js`. Discovery should only run configs that are enabled and supported by the current adapter code.
 
