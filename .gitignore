@@ -17,6 +17,10 @@ build/
 # Generated media
 assets/youtube/
 
+# Local planning docs
+docs/seo/
+
 # System files
 .DS_Store
 .vercel
+.env*

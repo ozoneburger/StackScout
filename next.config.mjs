@@ -2,6 +2,10 @@ import { dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const root = dirname(fileURLToPath(import.meta.url));
+const scriptSrc =
+  process.env.NODE_ENV === "production"
+    ? "'self' 'unsafe-inline'"
+    : "'self' 'unsafe-inline' 'unsafe-eval'";
 
 const nextConfig = {
   turbopack: {
@@ -15,7 +19,7 @@ const nextConfig = {
           {
             key: "Content-Security-Policy",
             value:
-              "default-src 'self'; img-src 'self' https: http: data:; connect-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'",
+              `default-src 'self'; img-src 'self' https: http: data:; connect-src 'self'; script-src ${scriptSrc}; style-src 'self' 'unsafe-inline'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'`,
           },
           { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
           { key: "X-Content-Type-Options", value: "nosniff" },

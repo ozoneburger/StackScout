@@ -22,9 +22,15 @@
       </section>
 
       <nav class="category-tabs" role="tablist" aria-label="Supplement category">
-        <button class="category-tab" type="button" role="tab" aria-selected="false" aria-controls="results-panel" data-category="protein">Whey protein</button>
         <button class="category-tab active" type="button" role="tab" aria-selected="true" aria-controls="results-panel" data-category="creatine">Creatine</button>
+        <button class="category-tab" type="button" role="tab" aria-selected="false" aria-controls="results-panel" data-category="whey_protein">Whey protein</button>
+        <button class="category-tab" type="button" role="tab" aria-selected="false" aria-controls="results-panel" data-category="protein_isolate">Protein isolate</button>
+        <button class="category-tab" type="button" role="tab" aria-selected="false" aria-controls="results-panel" data-category="plant_based_protein">Plant protein</button>
+        <button class="category-tab" type="button" role="tab" aria-selected="false" aria-controls="results-panel" data-category="mass_gainer">Mass gainer</button>
+        <button class="category-tab" type="button" role="tab" aria-selected="false" aria-controls="results-panel" data-category="protein_bars">Protein bars</button>
         <button class="category-tab" type="button" role="tab" aria-selected="false" aria-controls="results-panel" data-category="pre_workout">Pre-workout</button>
+        <button class="category-tab" type="button" role="tab" aria-selected="false" aria-controls="results-panel" data-category="non_stim_pre_workout">Non-stim pre-workout</button>
+        <button class="category-tab" type="button" role="tab" aria-selected="false" aria-controls="results-panel" data-category="electrolytes">Electrolytes</button>
       </nav>
 
       <div class="controls results-controls" aria-label="Sort and display controls">
@@ -55,17 +61,6 @@
             <option value="">All retailers</option>
           </select>
         </label>
-        <fieldset class="pack-filter">
-          <legend>Pack size</legend>
-          <label>
-            Min grams
-            <input id="min-pack-size" type="number" min="0" step="50" inputmode="numeric" placeholder="Any" />
-          </label>
-          <label>
-            Max grams
-            <input id="max-pack-size" type="number" min="0" step="50" inputmode="numeric" placeholder="Any" />
-          </label>
-        </fieldset>
         <fieldset class="filter-group">
           <legend>Quality filters</legend>
           <label><input id="hide-shipping-unknown" type="checkbox" /> Hide shipping unknown</label>

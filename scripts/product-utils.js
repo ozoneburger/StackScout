@@ -8,6 +8,19 @@ export function asNumber(value) {
 }
 
 export function parseSizeGrams(text, fallbackSize = null) {
+  const multipackMatches = [
+    ...String(text).matchAll(/(\d+)\s*(?:x|pack(?:\s+of)?|pk)\s*(\d+(?:\.\d+)?)\s*(kg|g|gm|gms|gram|grams)\b/gi),
+    ...String(text).matchAll(/(\d+(?:\.\d+)?)\s*(kg|g|gm|gms|gram|grams)\s*(?:x|×)\s*(\d+)\b/gi),
+    ...String(text).matchAll(/(\d+(?:\.\d+)?)\s*(kg|g|gm|gms|gram|grams)[^\n\r]{0,40}?\bbox\s+of\s+(\d+)\b/gi),
+  ].map((match) => {
+    const countFirst = /^\d+\s*(?:x|pack|pk)/i.test(match[0]);
+    const count = countFirst ? Number(match[1]) : Number(match[3]);
+    const amount = countFirst ? Number(match[2]) : Number(match[1]);
+    const unit = (countFirst ? match[3] : match[2]).toLowerCase();
+    const grams = unit === "kg" ? amount * 1000 : amount;
+    return Math.round(count * grams);
+  });
+
   const matches = [...String(text).matchAll(/(\d+(?:\.\d+)?)\s*(kg|g|gm|gms|gram|grams|lb|lbs)\b/gi)].map(
     (match) => {
       const amount = Number(match[1]);
@@ -16,10 +29,11 @@ export function parseSizeGrams(text, fallbackSize = null) {
       return Math.round(grams);
     },
   );
+  const allMatches = [...multipackMatches, ...matches];
 
-  if (!matches.length) return fallbackSize;
-  if (!fallbackSize) return matches[0];
-  return matches.sort((a, b) => Math.abs(a - fallbackSize) - Math.abs(b - fallbackSize))[0];
+  if (!allMatches.length) return fallbackSize;
+  if (!fallbackSize) return allMatches.sort((a, b) => b - a)[0];
+  return allMatches.sort((a, b) => Math.abs(a - fallbackSize) - Math.abs(b - fallbackSize))[0];
 }
 
 export function productHandle(source) {

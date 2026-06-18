@@ -18,6 +18,17 @@ const allowedEventTypes = new Set([
   "remove_from_stack",
   "stack_quantity_change",
 ]);
+const allowedCategories = new Set([
+  "creatine",
+  "whey_protein",
+  "protein_isolate",
+  "plant_based_protein",
+  "mass_gainer",
+  "protein_bars",
+  "pre_workout",
+  "non_stim_pre_workout",
+  "electrolytes",
+]);
 
 function cleanString(value, maxLength) {
   const text = String(value ?? "").trim().replace(/\s+/g, " ");
@@ -38,7 +49,8 @@ function cleanUrl(value) {
 
 function cleanCategory(value) {
   const category = cleanString(value, 40);
-  if (["creatine", "protein", "pre_workout"].includes(category)) return category;
+  if (category === "protein") return "whey_protein";
+  if (allowedCategories.has(category)) return category;
   return "unknown";
 }
 

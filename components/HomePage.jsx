@@ -7,9 +7,27 @@ const money = new Intl.NumberFormat("en-NZ", {
 
 const categoryLabels = {
   creatine: "creatine",
-  protein: "whey protein",
+  whey_protein: "whey protein",
+  protein_isolate: "protein isolate",
+  plant_based_protein: "plant-based protein",
+  mass_gainer: "mass gainer",
+  protein_bars: "protein bars",
   pre_workout: "pre-workout",
+  non_stim_pre_workout: "non-stim pre-workout",
+  electrolytes: "electrolytes",
 };
+
+const categoryTabs = [
+  ["creatine", "Creatine"],
+  ["whey_protein", "Whey protein"],
+  ["protein_isolate", "Protein isolate"],
+  ["plant_based_protein", "Plant protein"],
+  ["mass_gainer", "Mass gainer"],
+  ["protein_bars", "Protein bars"],
+  ["pre_workout", "Pre-workout"],
+  ["non_stim_pre_workout", "Non-stim pre-workout"],
+  ["electrolytes", "Electrolytes"],
+];
 
 function safeUrl(value) {
   try {
@@ -23,6 +41,12 @@ function safeUrl(value) {
 
 function imageUrl(value) {
   return safeUrl(value) === "#" ? "/assets/product-placeholder.svg" : value;
+}
+
+function formatPackSize(sizeGrams) {
+  if (!Number.isFinite(sizeGrams)) return "N/A";
+  if (sizeGrams < 1000) return `${sizeGrams.toLocaleString()}g`;
+  return `${(sizeGrams / 1000).toLocaleString("en-NZ", { maximumFractionDigits: 2 })} kg`;
 }
 
 function formatReviews(product) {
@@ -74,7 +98,7 @@ function ProductRow({ product }) {
       </td>
       <td>
         <div className="metric metric-size">
-          <strong>{product.sizeGrams.toLocaleString()}g</strong>
+          <strong>{formatPackSize(product.sizeGrams)}</strong>
           <span>pack size</span>
         </div>
       </td>
@@ -119,7 +143,7 @@ function ProductCard({ product }) {
         {product.product}
       </a>
       <div className="meta">
-        <div><span>Pack size</span><strong>{product.sizeGrams.toLocaleString()}g</strong></div>
+        <div><span>Pack size</span><strong>{formatPackSize(product.sizeGrams)}</strong></div>
         <div><span>Item price</span><strong>{money.format(product.price)}</strong></div>
         <div><span>Delivered total</span><strong>{money.format(estimatedTotal(product))}</strong></div>
         <div><span>Price per 100g</span><strong className="value">{money.format(pricePer100g(product))}</strong></div>
@@ -130,7 +154,7 @@ function ProductCard({ product }) {
   );
 }
 
-export function HomePage({ initialProducts, refreshedAt, selectedCategory = "creatine" }) {
+export function HomePage({ initialProducts, refreshedAt, selectedCategory = "creatine", seoContent = null }) {
   const visibleProducts = initialProducts.slice(0, 12);
   const refreshText = refreshedAt
     ? `Data refreshed ${new Date(refreshedAt).toLocaleString("en-NZ", { timeZone: "Pacific/Auckland" })} NZDT.`
@@ -147,14 +171,26 @@ export function HomePage({ initialProducts, refreshedAt, selectedCategory = "cre
           <p className="summary">
             Compare <span id="category-cycle" className="category-cycle">{categoryLabels[selectedCategory]}</span> by real cost, size, reviews, shipping, and delivered total.
           </p>
-          <p className="data-status" id="data-status">{refreshText}</p>
         </div>
       </section>
 
       <nav className="category-tabs" role="tablist" aria-label="Supplement category">
-        <button className="category-tab active" type="button" role="tab" aria-selected="true" aria-controls="results-panel" data-category="creatine">Creatine</button>
-        <button className="category-tab" type="button" role="tab" aria-selected="false" aria-controls="results-panel" data-category="protein">Whey protein</button>
-        <button className="category-tab" type="button" role="tab" aria-selected="false" aria-controls="results-panel" data-category="pre_workout">Pre-workout</button>
+        {categoryTabs.map(([category, label]) => {
+          const active = category === selectedCategory;
+          return (
+            <button
+              key={category}
+              className={`category-tab ${active ? "active" : ""}`}
+              type="button"
+              role="tab"
+              aria-selected={active ? "true" : "false"}
+              aria-controls="results-panel"
+              data-category={category}
+            >
+              {label}
+            </button>
+          );
+        })}
       </nav>
 
       <div className="controls results-controls" aria-label="Sort and display controls">
@@ -185,11 +221,6 @@ export function HomePage({ initialProducts, refreshedAt, selectedCategory = "cre
             <option value="">All retailers</option>
           </select>
         </label>
-        <fieldset className="pack-filter">
-          <legend>Pack size</legend>
-          <label>Min grams<input id="min-pack-size" type="number" min="0" step="50" inputMode="numeric" placeholder="Any" /></label>
-          <label>Max grams<input id="max-pack-size" type="number" min="0" step="50" inputMode="numeric" placeholder="Any" /></label>
-        </fieldset>
         <fieldset className="filter-group">
           <legend>Quality filters</legend>
           <label><input id="hide-shipping-unknown" type="checkbox" /> Hide shipping unknown</label>
@@ -230,6 +261,8 @@ export function HomePage({ initialProducts, refreshedAt, selectedCategory = "cre
         </div>
       </section>
 
+      {seoContent}
+
       <section className="stack-panel" aria-labelledby="stack-title">
         <div className="stack-head">
           <div>
@@ -269,14 +302,8 @@ export function HomePage({ initialProducts, refreshedAt, selectedCategory = "cre
         </form>
       </section>
 
-      <section className="faq" aria-label="FAQ">
-        <h2>FAQ</h2>
-        <details open><summary>What does best value mean?</summary><p>Best value means the lowest estimated delivered cost per 100g. This helps compare small tubs and large tubs fairly.</p></details>
-        <details open><summary>How current is the data?</summary><p>StackScout refreshes product data regularly where reliable retailer sources are available. Prices, stock, shipping, and reviews are snapshots, not final checkout quotes.</p></details>
-        <details><summary>How does StackScout get product data?</summary><p>StackScout checks NZ-accessible retailer sources such as product feeds, store platform data, product page metadata, and public product pages. It extracts comparable basics like product name, pack size, item price, availability, review signals, and shipping rules.</p></details>
-        <details><summary>How can I trust the comparison?</summary><p>Prices and availability are only used when they can be parsed from clear retailer evidence. Products also need a valid pack size, plausible price, and the right format for the category, so capsules, bundles, samples, and unrelated products are filtered out.</p></details>
-        <details><summary>What happens when a retailer page cannot be checked?</summary><p>If a retailer page fails or returns data that looks wrong, StackScout keeps the last saved product information and labels it as stale instead of treating it as fresh. Stale or unavailable products should not be treated as the best current deal.</p></details>
-        <details><summary>What should I double-check before buying?</summary><p>Check the retailer page for final shipping, rural fees, promo codes, stock, and product details. StackScout is a shortlist tool, so the retailer checkout is still the source of truth before you buy.</p></details>
+      <section className="homepage-data-note" aria-label="Data freshness">
+        <p className="data-status" id="data-status">{refreshText}</p>
       </section>
     </main>
   );

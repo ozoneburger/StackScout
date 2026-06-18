@@ -1,7 +1,29 @@
 const categorySearchTerms = {
   creatine: ["creatine", "creatine monohydrate"],
-  protein: ["whey protein", "whey isolate"],
+  whey_protein: ["whey protein", "protein powder"],
+  protein_isolate: ["whey isolate", "protein isolate"],
+  plant_based_protein: ["plant based protein", "vegan protein", "pea protein"],
+  mass_gainer: ["mass gainer", "weight gainer"],
+  protein_bars: ["protein bars", "protein bar"],
   pre_workout: ["pre workout", "pre-workout"],
+  non_stim_pre_workout: ["non stim pre workout", "stim free pre workout", "caffeine free pre workout"],
+  electrolytes: ["electrolytes", "hydration powder"],
+};
+
+export const defaultScrapePolicy = {
+  minDelayMs: 1000,
+  maxConcurrent: 2,
+  cacheTtlMs: 0,
+  cooldownOn429Ms: 15 * 60 * 1000,
+  retries: 2,
+};
+
+export const strictScrapePolicy = {
+  minDelayMs: 10000,
+  maxConcurrent: 1,
+  cacheTtlMs: 6 * 60 * 60 * 1000,
+  cooldownOn429Ms: 60 * 60 * 1000,
+  retries: 1,
 };
 
 function shopifySearchSources(baseUrl, categories = Object.keys(categorySearchTerms)) {
@@ -25,8 +47,14 @@ function shopifyCollectionSource(category, url) {
 function chemistWarehouseSearchSources() {
   return Object.entries({
     creatine: "creatine",
-    protein: "whey protein",
+    whey_protein: "whey protein",
+    protein_isolate: "whey isolate",
+    plant_based_protein: "plant protein",
+    mass_gainer: "mass gainer",
+    protein_bars: "protein bars",
     pre_workout: "pre workout",
+    non_stim_pre_workout: "non stim pre workout",
+    electrolytes: "electrolytes",
   }).map(([category, term]) => ({
     category,
     adapterType: "chemistWarehouseSearch",
@@ -38,14 +66,44 @@ function xplosivSources() {
   return [
     { category: "creatine", adapterType: "genericHtml", url: "https://xplosiv.nz/creatine.html" },
     {
-      category: "protein",
+      category: "whey_protein",
       adapterType: "genericHtml",
       url: "https://xplosiv.nz/catalogsearch/result/?q=whey+protein",
+    },
+    {
+      category: "protein_isolate",
+      adapterType: "genericHtml",
+      url: "https://xplosiv.nz/catalogsearch/result/?q=whey+isolate",
+    },
+    {
+      category: "plant_based_protein",
+      adapterType: "genericHtml",
+      url: "https://xplosiv.nz/catalogsearch/result/?q=plant+protein",
+    },
+    {
+      category: "mass_gainer",
+      adapterType: "genericHtml",
+      url: "https://xplosiv.nz/catalogsearch/result/?q=mass+gainer",
+    },
+    {
+      category: "protein_bars",
+      adapterType: "genericHtml",
+      url: "https://xplosiv.nz/catalogsearch/result/?q=protein+bar",
     },
     {
       category: "pre_workout",
       adapterType: "genericHtml",
       url: "https://xplosiv.nz/catalogsearch/result/?q=pre+workout",
+    },
+    {
+      category: "non_stim_pre_workout",
+      adapterType: "genericHtml",
+      url: "https://xplosiv.nz/catalogsearch/result/?q=non+stim+pre+workout",
+    },
+    {
+      category: "electrolytes",
+      adapterType: "genericHtml",
+      url: "https://xplosiv.nz/catalogsearch/result/?q=electrolytes",
     },
   ];
 }
@@ -58,27 +116,57 @@ function sprintFitSources() {
       url: "https://www.sprintfit.co.nz/products/category/315/creatine",
     },
     {
-      category: "protein",
+      category: "whey_protein",
       adapterType: "genericHtml",
       url: "https://www.sprintfit.co.nz/products/search?search=whey%20protein",
+    },
+    {
+      category: "protein_isolate",
+      adapterType: "genericHtml",
+      url: "https://www.sprintfit.co.nz/products/search?search=whey%20isolate",
+    },
+    {
+      category: "plant_based_protein",
+      adapterType: "genericHtml",
+      url: "https://www.sprintfit.co.nz/products/search?search=plant%20protein",
+    },
+    {
+      category: "mass_gainer",
+      adapterType: "genericHtml",
+      url: "https://www.sprintfit.co.nz/products/search?search=mass%20gainer",
+    },
+    {
+      category: "protein_bars",
+      adapterType: "genericHtml",
+      url: "https://www.sprintfit.co.nz/products/search?search=protein%20bar",
     },
     {
       category: "pre_workout",
       adapterType: "genericHtml",
       url: "https://www.sprintfit.co.nz/products/search?search=pre%20workout",
     },
+    {
+      category: "non_stim_pre_workout",
+      adapterType: "genericHtml",
+      url: "https://www.sprintfit.co.nz/products/search?search=non%20stim%20pre%20workout",
+    },
+    {
+      category: "electrolytes",
+      adapterType: "genericHtml",
+      url: "https://www.sprintfit.co.nz/products/search?search=electrolytes",
+    },
   ];
 }
 
 function nzProteinSources() {
-  return ["creatine", "protein", "pre_workout"].map((category) => ({
+  return Object.keys(categorySearchTerms).map((category) => ({
     category,
     adapterType: "genericHtml",
     url: "https://www.nzprotein.co.nz/products",
   }));
 }
 
-export const retailerConfigs = [
+const rawRetailerConfigs = [
   {
     name: "Sportsfuel",
     baseUrl: "https://www.sportsfuel.co.nz",
@@ -88,7 +176,16 @@ export const retailerConfigs = [
         "creatine",
         "https://www.sportsfuel.co.nz/collections/creatine-monohydrate/products.json?limit=50",
       ),
-      ...shopifySearchSources("https://www.sportsfuel.co.nz", ["protein", "pre_workout"]),
+      ...shopifySearchSources("https://www.sportsfuel.co.nz", [
+        "whey_protein",
+        "protein_isolate",
+        "plant_based_protein",
+        "mass_gainer",
+        "protein_bars",
+        "pre_workout",
+        "non_stim_pre_workout",
+        "electrolytes",
+      ]),
     ],
     maxCandidates: 25,
     shipping: {
@@ -97,7 +194,7 @@ export const retailerConfigs = [
       note: "Free NZ-wide delivery over $60.",
     },
     enabled: true,
-    notes: "Shopify structured discovery. Creatine uses collection; protein and pre-workout use search suggest.",
+    notes: "Shopify structured discovery. Creatine uses collection; other StackScout categories use search suggest.",
   },
   {
     name: "Supplements.co.nz",
@@ -105,7 +202,16 @@ export const retailerConfigs = [
     adapterType: "shopifySearchSuggest",
     discoverySources: [
       shopifyCollectionSource("creatine", "https://www.supplements.co.nz/collections/creatine/products.json?limit=50"),
-      ...shopifySearchSources("https://www.supplements.co.nz", ["protein", "pre_workout"]),
+      ...shopifySearchSources("https://www.supplements.co.nz", [
+        "whey_protein",
+        "protein_isolate",
+        "plant_based_protein",
+        "mass_gainer",
+        "protein_bars",
+        "pre_workout",
+        "non_stim_pre_workout",
+        "electrolytes",
+      ]),
     ],
     maxCandidates: 25,
     shipping: {
@@ -114,7 +220,7 @@ export const retailerConfigs = [
       note: "Free NZ-wide shipping over $60; rural surcharge may apply.",
     },
     enabled: true,
-    notes: "Shopify structured discovery. Creatine uses collection; protein and pre-workout use search suggest.",
+    notes: "Shopify structured discovery. Creatine uses collection; other StackScout categories use search suggest.",
   },
   {
     name: "Musashi NZ",
@@ -227,6 +333,7 @@ export const retailerConfigs = [
     },
     enabled: true,
     notes: "Magento HTML/search discovery across StackScout MVP categories.",
+    scrapePolicy: strictScrapePolicy,
   },
   {
     name: "Sprint Fit",
@@ -272,6 +379,14 @@ export const retailerConfigs = [
   },
 ];
 
+export const retailerConfigs = rawRetailerConfigs.map((config) => ({
+  ...config,
+  scrapePolicy: {
+    ...defaultScrapePolicy,
+    ...(config.scrapePolicy ?? {}),
+  },
+}));
+
 export const discoveryConfigs = retailerConfigs
   .filter((config) => config.enabled)
   .flatMap((config) => {
@@ -291,5 +406,6 @@ export const discoveryConfigs = retailerConfigs
       baseUrl: config.baseUrl,
       maxCandidates: config.maxCandidates,
       shipping: config.shipping,
+      scrapePolicy: config.scrapePolicy,
     }));
   });

@@ -10,13 +10,33 @@ function nullableNumber(value) {
   return Number.isFinite(number) ? number : null;
 }
 
+function normalizedCategory(row, metadata) {
+  const category = row.category ?? metadata.category ?? "creatine";
+  const text = `${row.product_name ?? ""}`.toLowerCase();
+  if (
+    category === "pre_workout" &&
+    /\b(non[-\s]?stim|stim[-\s]?free|stimulant[-\s]?free|caffeine[-\s]?free|zero caffeine)\b/.test(text)
+  ) {
+    return "non_stim_pre_workout";
+  }
+  if (category !== "protein") return category;
+
+  if (/\b(isolate|iso[-\s]?100)\b/.test(text)) return "protein_isolate";
+  if (/\b(vegan|plant[-\s]?based|plant protein|pea|rice|soy)\b/.test(text)) {
+    return "plant_based_protein";
+  }
+  if (/\b(mass gainer|weight gainer|\bgainer\b)\b/.test(text)) return "mass_gainer";
+  if (/\b(bar|bars|cookie|cookies|brownie|brownies)\b/.test(text)) return "protein_bars";
+  return "whey_protein";
+}
+
 function mapProductRow(row) {
   const metadata = rowMetadata(row);
   return {
     retailer: row.retailer,
     image: row.image_url,
     product: row.product_name,
-    category: row.category ?? metadata.category ?? "creatine",
+    category: normalizedCategory(row, metadata),
     productImage: metadata.productImage ?? null,
     sizeGrams: row.size_grams,
     price: nullableNumber(row.last_item_price),
