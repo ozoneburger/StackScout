@@ -1,4 +1,5 @@
 import { estimatedShipping, estimatedTotal, pricePer100g } from "../lib/stackscout-server.js";
+import { Button } from "@/components/ui/button";
 
 const money = new Intl.NumberFormat("en-NZ", {
   style: "currency",
@@ -123,9 +124,9 @@ function ProductRow({ product }) {
         </div>
       </td>
       <td>
-        <button className="stack-add" type="button" data-stack-action="add" data-source={product.source}>
+        <Button className="stack-add" type="button" data-stack-action="add" data-source={product.source}>
           Add to stack
-        </button>
+        </Button>
       </td>
     </tr>
   );
@@ -149,7 +150,7 @@ function ProductCard({ product }) {
         <div><span>Price per 100g</span><strong className="value">{money.format(pricePer100g(product))}</strong></div>
       </div>
       <p>{formatShipping(product)}</p>
-      <button className="stack-add" type="button" data-stack-action="add" data-source={product.source}>Add to stack</button>
+      <Button className="stack-add" type="button" data-stack-action="add" data-source={product.source}>Add to stack</Button>
     </article>
   );
 }
@@ -163,7 +164,7 @@ export function HomePage({ initialProducts, refreshedAt, selectedCategory = "cre
   return (
     <main className="app">
       <section className="toolbar" aria-labelledby="page-title">
-        <div>
+        <div className="hero-copy">
           <p className="eyebrow">Build your stack for less with NZ's supplement price checker</p>
           <h1 id="page-title" className="brand-heading">
             <img src="/assets/stackscout-logo.svg" alt="StackScout" width="920" height="220" />
@@ -178,8 +179,9 @@ export function HomePage({ initialProducts, refreshedAt, selectedCategory = "cre
         {categoryTabs.map(([category, label]) => {
           const active = category === selectedCategory;
           return (
-            <button
+            <Button
               key={category}
+              variant={active ? "secondary" : "ghost"}
               className={`category-tab ${active ? "active" : ""}`}
               type="button"
               role="tab"
@@ -188,7 +190,7 @@ export function HomePage({ initialProducts, refreshedAt, selectedCategory = "cre
               data-category={category}
             >
               {label}
-            </button>
+            </Button>
           );
         })}
       </nav>
@@ -257,7 +259,7 @@ export function HomePage({ initialProducts, refreshedAt, selectedCategory = "cre
 
         <div className="load-row">
           <span id="result-count" aria-live="polite">Showing {visibleProducts.length} of {initialProducts.length} available {categoryLabels[selectedCategory]} products</span>
-          <button id="load-more-button" type="button" hidden={visibleProducts.length >= initialProducts.length}>Load more</button>
+          <Button id="load-more-button" type="button" hidden={visibleProducts.length >= initialProducts.length}>Load more</Button>
         </div>
       </section>
 
@@ -297,7 +299,7 @@ export function HomePage({ initialProducts, refreshedAt, selectedCategory = "cre
             <label>Product or retailer<input name="productName" maxLength="260" placeholder="Optional" /></label>
             <label>Link<input name="sourceUrl" type="url" maxLength="1200" placeholder="Optional retailer URL" aria-describedby="feedback-status" /></label>
           </div>
-          <button type="submit">Send feedback</button>
+          <Button type="submit">Send feedback</Button>
           <p className="feedback-status" id="feedback-status" aria-live="polite"></p>
         </form>
       </section>

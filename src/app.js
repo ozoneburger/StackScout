@@ -580,6 +580,29 @@ function chartDots(points, key, min, max, width, height, pad, className) {
     .join("");
 }
 
+function renderEmptyHistoryChart() {
+  return `
+    <section class="history-chart-card history-chart-card-empty">
+      <div class="history-chart-title">
+        <strong>Price history</strong>
+        <span>Waiting for tracked refreshes</span>
+      </div>
+      <div class="history-chart-empty" role="img" aria-label="No price history chart data yet">
+        <svg class="history-chart history-chart-placeholder" viewBox="0 0 960 270" aria-hidden="true">
+          <line class="history-grid" x1="48" y1="76" x2="912" y2="76"></line>
+          <line class="history-grid" x1="48" y1="135" x2="912" y2="135"></line>
+          <line class="history-grid" x1="48" y1="194" x2="912" y2="194"></line>
+          <path class="history-placeholder-line" d="M 48 176 C 180 132, 280 158, 390 124 S 612 108, 720 132 S 850 156, 912 118"></path>
+        </svg>
+        <div class="history-empty-overlay">
+          <strong>No tracked points yet</strong>
+          <span>Run another product refresh to start drawing the line graph.</span>
+        </div>
+      </div>
+    </section>
+  `;
+}
+
 function renderMetricHistoryChart(points, key, label, className) {
   const cleanPoints = dailyHistoryPoints(historyWindow(points, 90)).filter((point) => Number.isFinite(point[key]));
   if (!cleanPoints.length) return "";
@@ -611,6 +634,15 @@ function renderMetricHistoryChart(points, key, label, className) {
     cleanPoints.length > 1 && cleanPoints.length <= 14
       ? chartDots(cleanPoints, key, min, max, width, height, pad, `history-dot ${className}`)
       : "";
+  const singlePointGuide =
+    cleanPoints.length === 1
+      ? `<line class="history-single-guide ${className}" x1="${pad}" y1="${latestPosition.y.toFixed(1)}" x2="${
+          width - pad
+        }" y2="${latestPosition.y.toFixed(1)}"></line>
+        <text class="history-single-label" x="${pad}" y="${(latestPosition.y - 12).toFixed(
+          1,
+        )}">First saved point</text>`
+      : "";
   const endDateLabel =
     dayKey(first.observedAt) === dayKey(latest.observedAt)
       ? ""
@@ -630,6 +662,7 @@ function renderMetricHistoryChart(points, key, label, className) {
         ${gridRows}
         <path class="history-area ${className}" d="${chartAreaPath(cleanPoints, key, min, max, width, height, pad)}"></path>
         <path class="history-line ${className}" d="${chartPath(cleanPoints, key, min, max, width, height, pad)}"></path>
+        ${singlePointGuide}
         ${dotMarkup}
         <circle class="history-current-dot ${className}" cx="${latestPosition.x.toFixed(1)}" cy="${latestPosition.y.toFixed(
           1,
@@ -652,7 +685,12 @@ function renderPriceHistoryChart(points) {
     .filter((point) => Number.isFinite(point.itemPrice) && Number.isFinite(point.pricePer100g))
     .slice(-240);
   if (!cleanPoints.length) {
-    return `<p class="history-empty">No price history has been recorded for this product yet.</p>`;
+    return `
+      <div class="history-chart-wrap">
+        <p class="history-range-note">Price history is recorded after product refreshes.</p>
+        ${renderEmptyHistoryChart()}
+      </div>
+    `;
   }
 
   const latest = cleanPoints.at(-1);
