@@ -177,6 +177,70 @@ a {
   font-weight: 850 !important;
 }
 
+.seo-panel {
+  display: grid;
+  gap: 18px;
+  margin: 22px 0;
+  padding: 24px;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.seo-panel h2,
+.seo-panel h3 {
+  margin: 0;
+  color: var(--ink);
+  font-weight: 950;
+  line-height: 1.2;
+}
+
+.seo-panel h2 {
+  font-size: clamp(1.4rem, 2.4vw, 2rem);
+}
+
+.seo-panel h3 {
+  font-size: 1rem;
+}
+
+.seo-panel p,
+.seo-panel li {
+  color: var(--muted);
+  font-size: 0.96rem;
+  font-weight: 650;
+  line-height: 1.58;
+}
+
+.seo-panel p {
+  max-width: 860px;
+  margin: 8px 0 0;
+}
+
+.seo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.seo-grid article {
+  padding: 16px;
+  background: rgba(245, 241, 232, 0.68);
+  border: 1px solid rgba(90, 102, 95, 0.18);
+  border-radius: 8px;
+}
+
+.seo-list {
+  display: grid;
+  gap: 8px;
+}
+
+.seo-list ul {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding-left: 20px;
+}
+
 .toolbar {
   display: grid;
   gap: 10px;
@@ -280,13 +344,17 @@ h2 {
 
 .category-tabs {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: 8px;
-  justify-content: center;
+  justify-content: flex-start;
   margin: 0 0 12px;
+  overflow-x: auto;
+  padding: 0 2px 8px;
+  scrollbar-width: thin;
 }
 
 .category-tab {
+  flex: 0 0 auto;
   min-height: 40px;
   border: 1px solid var(--line);
   background: var(--panel);
@@ -1694,6 +1762,10 @@ button[hidden] {
     padding: 18px;
   }
 
+  .seo-grid {
+    grid-template-columns: 1fr;
+  }
+
   .toolbar {
     grid-template-columns: 1fr;
   }
@@ -1721,16 +1793,18 @@ button[hidden] {
     display: flex;
     gap: 6px;
     width: 100%;
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding-bottom: 8px;
   }
 
   .category-tab {
-    flex: 1 1 0;
-    min-width: 0;
-    padding: 0 6px;
-    font-size: clamp(0.72rem, 3.2vw, 0.9rem);
+    flex: 0 0 auto;
+    min-width: max-content;
+    padding: 0 10px;
+    font-size: 0.82rem;
     line-height: 1.1;
-    overflow-wrap: anywhere;
-    white-space: normal;
+    white-space: nowrap;
   }
 
   .featured-head {

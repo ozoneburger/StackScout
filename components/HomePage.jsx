@@ -7,9 +7,27 @@ const money = new Intl.NumberFormat("en-NZ", {
 
 const categoryLabels = {
   creatine: "creatine",
-  protein: "whey protein",
+  whey_protein: "whey protein",
+  protein_isolate: "protein isolate",
+  plant_based_protein: "plant-based protein",
+  mass_gainer: "mass gainer",
+  protein_bars: "protein bars",
   pre_workout: "pre-workout",
+  non_stim_pre_workout: "non-stim pre-workout",
+  electrolytes: "electrolytes",
 };
+
+const categoryTabs = [
+  ["creatine", "Creatine"],
+  ["whey_protein", "Whey protein"],
+  ["protein_isolate", "Protein isolate"],
+  ["plant_based_protein", "Plant protein"],
+  ["mass_gainer", "Mass gainer"],
+  ["protein_bars", "Protein bars"],
+  ["pre_workout", "Pre-workout"],
+  ["non_stim_pre_workout", "Non-stim pre-workout"],
+  ["electrolytes", "Electrolytes"],
+];
 
 function safeUrl(value) {
   try {
@@ -136,7 +154,7 @@ function ProductCard({ product }) {
   );
 }
 
-export function HomePage({ initialProducts, refreshedAt, selectedCategory = "creatine" }) {
+export function HomePage({ initialProducts, refreshedAt, selectedCategory = "creatine", seoContent = null }) {
   const visibleProducts = initialProducts.slice(0, 12);
   const refreshText = refreshedAt
     ? `Data refreshed ${new Date(refreshedAt).toLocaleString("en-NZ", { timeZone: "Pacific/Auckland" })} NZDT.`
@@ -157,9 +175,22 @@ export function HomePage({ initialProducts, refreshedAt, selectedCategory = "cre
       </section>
 
       <nav className="category-tabs" role="tablist" aria-label="Supplement category">
-        <button className="category-tab active" type="button" role="tab" aria-selected="true" aria-controls="results-panel" data-category="creatine">Creatine</button>
-        <button className="category-tab" type="button" role="tab" aria-selected="false" aria-controls="results-panel" data-category="protein">Whey protein</button>
-        <button className="category-tab" type="button" role="tab" aria-selected="false" aria-controls="results-panel" data-category="pre_workout">Pre-workout</button>
+        {categoryTabs.map(([category, label]) => {
+          const active = category === selectedCategory;
+          return (
+            <button
+              key={category}
+              className={`category-tab ${active ? "active" : ""}`}
+              type="button"
+              role="tab"
+              aria-selected={active ? "true" : "false"}
+              aria-controls="results-panel"
+              data-category={category}
+            >
+              {label}
+            </button>
+          );
+        })}
       </nav>
 
       <div className="controls results-controls" aria-label="Sort and display controls">
@@ -229,6 +260,8 @@ export function HomePage({ initialProducts, refreshedAt, selectedCategory = "cre
           <button id="load-more-button" type="button" hidden={visibleProducts.length >= initialProducts.length}>Load more</button>
         </div>
       </section>
+
+      {seoContent}
 
       <section className="stack-panel" aria-labelledby="stack-title">
         <div className="stack-head">

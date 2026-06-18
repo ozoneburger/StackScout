@@ -6,6 +6,7 @@ const initialVisibleCount = 12;
 const loadMoreStep = 12;
 const stackStorageKey = "stackscout.myStack.v1";
 const sessionStorageKey = "stackscout.sessionId.v1";
+const campaignStorageKey = "stackscout.campaign.v1";
 
 const money = new Intl.NumberFormat("en-NZ", {
   style: "currency",
@@ -37,15 +38,23 @@ const feedbackStatus = document.querySelector("#feedback-status");
 let lastControlState = "";
 let visibleCount = initialVisibleCount;
 let stack = loadStack();
-let selectedCategory = "creatine";
+let selectedCategory = document.querySelector(".category-tab.active")?.dataset.category ?? "creatine";
 let featuredPaused = false;
 const analyticsSessionId = loadSessionId();
+const campaignAttribution = loadCampaignAttribution();
 const expandedHistorySources = new Set();
 const priceHistoryBySource = new Map();
 const categoryLabels = {
   creatine: "creatine",
   protein: "whey protein",
+  whey_protein: "whey protein",
+  protein_isolate: "protein isolate",
+  plant_based_protein: "plant-based protein",
+  mass_gainer: "mass gainer",
+  protein_bars: "protein bars",
   pre_workout: "pre-workout",
+  non_stim_pre_workout: "non-stim pre-workout",
+  electrolytes: "electrolytes",
 };
 
 function estimatedShipping(product) {
@@ -134,6 +143,28 @@ function currentPagePath() {
   return `${window.location.pathname}${window.location.search}`;
 }
 
+function campaignFromLocation() {
+  const params = new URLSearchParams(window.location.search);
+  const keys = ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content"];
+  const campaign = Object.fromEntries(keys.map((key) => [key, params.get(key)]).filter(([, value]) => value));
+  if (document.referrer) campaign.initial_referrer = document.referrer;
+  campaign.landing_page = currentPagePath();
+  return campaign;
+}
+
+function loadCampaignAttribution() {
+  const current = campaignFromLocation();
+  const hasCampaign = Object.keys(current).some((key) => key.startsWith("utm_"));
+  try {
+    const stored = JSON.parse(sessionStorage.getItem(campaignStorageKey) ?? "null");
+    if (stored && !hasCampaign) return stored;
+    sessionStorage.setItem(campaignStorageKey, JSON.stringify(current));
+    return current;
+  } catch {
+    return current;
+  }
+}
+
 function trackAnalyticsEvent(eventType, metadata = {}) {
   const body = JSON.stringify({
     eventType,
@@ -146,6 +177,7 @@ function trackAnalyticsEvent(eventType, metadata = {}) {
       hideShippingUnknown: hideShippingUnknownFilter?.checked,
       onlyCheckedToday: onlyCheckedTodayFilter?.checked,
       hideStale: hideStaleFilter?.checked,
+      ...campaignAttribution,
       ...metadata,
     },
   });
