@@ -1,8 +1,12 @@
 import { ContentPage } from "../../components/ContentPage.jsx";
+import { pageMetadata } from "../../lib/seo.js";
 
-export const metadata = {
-  title: "Contact - StackScout",
-};
+export const metadata = pageMetadata({
+  title: "Contact",
+  description:
+    "Contact StackScout for retailer corrections, missing NZ supplement products, data issues, or partnership enquiries.",
+  path: "/contact",
+});
 
 export default function ContactPage() {
   return (

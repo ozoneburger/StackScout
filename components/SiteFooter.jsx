@@ -1,4 +1,8 @@
 const footerLinks = [
+  { href: "/creatine", label: "Creatine" },
+  { href: "/protein", label: "Whey protein" },
+  { href: "/pre-workout", label: "Pre-workout" },
+  { href: "/best-creatine-nz", label: "Best creatine NZ" },
   { href: "/about", label: "About" },
   { href: "/faq", label: "FAQ" },
   { href: "/contact", label: "Contact" },

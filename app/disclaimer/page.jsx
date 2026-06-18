@@ -1,8 +1,12 @@
 import { ContentPage } from "../../components/ContentPage.jsx";
+import { pageMetadata } from "../../lib/seo.js";
 
-export const metadata = {
-  title: "Disclaimer - StackScout",
-};
+export const metadata = pageMetadata({
+  title: "Disclaimer",
+  description:
+    "StackScout is a comparison and shortlist tool. Retailer checkout pages remain the source of truth for price, shipping, stock, and product details.",
+  path: "/disclaimer",
+});
 
 export default function DisclaimerPage() {
   return (

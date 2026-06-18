@@ -1,8 +1,12 @@
 import { ContentPage } from "../../components/ContentPage.jsx";
+import { pageMetadata } from "../../lib/seo.js";
 
-export const metadata = {
-  title: "Privacy - StackScout",
-};
+export const metadata = pageMetadata({
+  title: "Privacy",
+  description:
+    "How StackScout handles feedback, first-party usage events, browser storage, rate limiting, and contact details.",
+  path: "/privacy",
+});
 
 export default function PrivacyPage() {
   return (

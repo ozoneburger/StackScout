@@ -1,8 +1,12 @@
 import { ContentPage } from "../../components/ContentPage.jsx";
+import { pageMetadata } from "../../lib/seo.js";
 
-export const metadata = {
-  title: "About - StackScout",
-};
+export const metadata = pageMetadata({
+  title: "About",
+  description:
+    "Learn how StackScout compares NZ supplement products by estimated delivered value, freshness, retailer data, and price per 100g.",
+  path: "/about",
+});
 
 export default function AboutPage() {
   return (
