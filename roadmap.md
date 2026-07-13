@@ -3,6 +3,7 @@
 ## Status Key
 
 - ✅ Already built
+- 🟦 Implemented, verification missing
 - 🟡 Partially built
 - No icon: not implemented yet
 
@@ -23,7 +24,7 @@ The business goal is to prove StackScout can send measurable purchase-intent tra
 - ✅ Creatine comparison
 - ✅ Multiple NZ-accessible retailers
 - ✅ Product discovery from supported retailer adapters
-- 🟡 Daily product refresh: implemented and scheduled, but production freshness needs verification.
+- ✅ Daily product refresh: implemented, scheduled, and production freshness verified on 2026-06-19.
 - ✅ Supabase product, price, and availability history
 - ✅ Public product API
 - ✅ Product images with fallback placeholder
@@ -49,12 +50,12 @@ The business goal is to prove StackScout can send measurable purchase-intent tra
 - ✅ Launch backend: Vercel deployment, Supabase-backed API, protected admin/cron routes, and Upstash rate limiting are live.
 - 🟡 Trust and value algorithm: price per 100g and trust labels exist, but category-aware ranking rules are not complete.
 - ✅ Analytics: page views, category switches, sort/filter changes, stack events, outbound clicks, and the stats dashboard are implemented.
-- 🟡 Feedback collection: UI, API, schema, and rate limiting exist, but production Supabase writes still need live confirmation.
+- 🟦 Feedback collection: UI, API, schema, and rate limiting exist, but production Supabase writes still need live confirmation.
 - ✅ Domain hosting on `stackscout.co.nz`
 - ✅ Transparent trust and value algorithm
 - ✅ Product confidence labels
 - ✅ Privacy-first analytics dashboard
-- 🟡 Feedback collection: implemented, pending production write verification.
+- 🟦 Feedback collection: implemented, pending production write verification.
 - Retailer partnership pitch pack
 - Affiliate link support
 - Sponsored placement rules and labels
@@ -65,7 +66,7 @@ The business goal is to prove StackScout can send measurable purchase-intent tra
 
 - ✅ Keep creatine comparison useful and honest.
 - ✅ Hide unavailable products by default.
-- 🟡 Refresh product data daily: implemented and scheduled, but production cron freshness needs verification.
+- ✅ Refresh product data daily: implemented, scheduled, and production freshness verified on 2026-06-19.
 - ✅ Store product, price, and availability history in Supabase.
 - ✅ Rank products by estimated delivered price per 100g.
 - 🟡 Improve retailer coverage and adapter reliability.
